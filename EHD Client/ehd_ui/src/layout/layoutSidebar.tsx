@@ -5,13 +5,14 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import "../global.css";
 import Sider from "antd/es/layout/Sider";
 import { Content } from "antd/es/layout/layout";
-import UserAndChangePassword from "../pages/accounts/changePassword";
+
 import { MdOutlineGridView } from "react-icons/md";
 import { FaFileAlt } from "react-icons/fa";
 import { HiOutlineViewList, HiUsers } from "react-icons/hi";
 import { FaRegFileAlt } from "react-icons/fa";
 import { FcDataConfiguration } from "react-icons/fc";
 import { BsTicketDetailed } from "react-icons/bs";
+import UserAndChangePassword from "../pages/accounts/changepassword";
 interface MySidebarProps {
   role: string;
 }

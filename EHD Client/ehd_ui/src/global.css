@@ -14,7 +14,7 @@ LoginForm.css */
 
 .form-block {
   flex: 1;
-  margin-left: 20px; /* Adjust margin as needed */
+  margin-left: 20px; 
 }
 
 .loginDiv {
@@ -23,8 +23,8 @@ LoginForm.css */
 }
 
 .logo-image {
-  width: 80%; /* Adjust width as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 80%; 
+  height: auto; 
 }
 
 
