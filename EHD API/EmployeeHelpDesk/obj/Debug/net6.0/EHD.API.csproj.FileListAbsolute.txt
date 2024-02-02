@@ -182,3 +182,7 @@ C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\Azu
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\EHD.DAL.dll
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\EHD.DAL.pdb
+D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\Azure.Security.KeyVault.Secrets.dll
+D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\EHD.DAL.dll
+D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\EHD.DAL.pdb
