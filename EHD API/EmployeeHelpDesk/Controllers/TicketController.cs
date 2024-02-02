@@ -69,5 +69,29 @@ namespace EHD.API.Controllers
         {
             await _ticket.UpdateTicketDepartment(data);
         }
+
+        [HttpGet]
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllRejectedTickets(string departmentId)
+        {
+            return await _ticket.GetAllRejectedTickets(departmentId);
+        }
+
+        [HttpGet]
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllReRaisedTickets(string departmentId)
+        {
+            return await _ticket.GetAllReRaisedTickets(departmentId);
+        }
+
+        [HttpGet]
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetUnresolvedTicketsByDepartmentId(string departmentId)
+        {
+            return await _ticket.GetUnresolvedTicketsByDepartmentId(departmentId);
+        }
+
+        [HttpGet]
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetRepeatedlyReRaisedTicketsByDepartmentId(string departmentId)
+        {
+            return await _ticket.GetRepeatedlyReRaisedTicketsByDepartmentId(departmentId);
+        }
     }
 }

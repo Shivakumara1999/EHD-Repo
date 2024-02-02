@@ -14,6 +14,10 @@ namespace EHD.BAL.Interface
         Task<IQueryable<GetTicketByDepartmentDTO>> GetAllActiveTickets(string departmentId);
         Task<IQueryable<GetTicketByDepartmentDTO>> GetAllOverDueTickets(string departmentId);
         Task<IQueryable<GetTicketByDepartmentDTO>> GetAllClosedTickets(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetAllRejectedTickets(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetAllReRaisedTickets(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetUnresolvedTicketsByDepartmentId(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetRepeatedlyReRaisedTicketsByDepartmentId(string departmentId);
         Task UpdateTicketStatus(UpdateTicketStatusDTO ticketStatus);
         Task UpdateTicketDepartment(UpdateDepartmentTicketDTO data);
     }

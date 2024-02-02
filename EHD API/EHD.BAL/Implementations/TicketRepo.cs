@@ -199,5 +199,120 @@ namespace EHD.BAL.Implementations
             }
         }
 
-    }
+
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllRejectedTickets(string departmentId)
+        {
+            var data = await _dbContext.tickets
+                .Include(e => e.Employee)
+                .Include(d => d.Department)
+                .Include(i => i.Issue)
+                .Include(p => p.Priority)
+                .Include(s => s.Status)
+                .Where(t => t.DepartmentId == departmentId && t.StatusId == 2)
+                .OrderByDescending(t => t.CreatedDate)
+                .Select(t => new GetTicketByDepartmentDTO
+                {
+                    TicketId = t.TicketId,
+                    TicketDescription = t.TicketDescription,
+                    Department = t.Department.DepartmentName,
+                    Issue = t.Issue.IssueName,
+                    Priority = t.Priority.PriorityName,
+                    Status = t.Status.StatusName,
+                    ReRaiseStatus = t.ReRaiseStatus,
+                    CreatedDate = t.CreatedDate,
+                    TicketDate = t.RejectedDate,
+                    StatusMessage = t.RejectedReason
+                }).ToListAsync();
+
+            return data.AsQueryable();
+        }
+
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllReRaisedTickets(string departmentId)
+        {
+            var data = await _dbContext.tickets
+                .Include(e => e.Employee)
+                .Include(d => d.Department)
+                .Include(i => i.Issue)
+                .Include(p => p.Priority)
+                .Include(s => s.Status)
+                .Where(t => t.DepartmentId == departmentId && t.ReRaiseStatus == true)
+                .OrderByDescending(t => t.CreatedDate)
+                .Select(t => new GetTicketByDepartmentDTO
+                {
+                    TicketId = t.TicketId,
+                    TicketDescription = t.TicketDescription,
+                    Department = t.Department.DepartmentName,
+                    Issue = t.Issue.IssueName,
+                    Priority = t.Priority.PriorityName,
+                    Status = t.Status.StatusName,
+                    ReRaiseStatus = t.ReRaiseStatus,
+                    CreatedDate = t.CreatedDate,
+                    TicketDate = t.RejectedDate,
+                    StatusMessage = t.ReRaiseReason,
+                    ReRaiseCount = t.ReRaiseCount
+                }).ToListAsync();
+
+            return data.AsQueryable();
+        }
+
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetUnresolvedTicketsByDepartmentId(string departmentId)
+        {
+
+
+            var data = await _dbContext.tickets
+                .Include(e => e.Employee)
+                .Include(d => d.Department)
+                .Include(i => i.Issue)
+                .Include(p => p.Priority)
+                .Include(s => s.Status)
+                .Where(t => t.DepartmentId == departmentId && (t.StatusId == 1 || t.StatusId == null) && t.DueDate.AddDays(1) < DateTime.Now)
+                .OrderByDescending(t => t.CreatedDate)
+                .Select(t => new GetTicketByDepartmentDTO
+                {
+                    TicketId = t.TicketId,
+                    EmployeeId = t.EmployeeId,
+                    TicketDescription = t.TicketDescription,
+                    Department = t.Department.DepartmentName,
+                    Issue = t.Issue.IssueName,
+                    Priority = t.Priority.PriorityName,
+                    Status = t.Status.StatusName,
+                    ReRaiseStatus = t.ReRaiseStatus,
+                    CreatedDate = t.CreatedDate,
+                    TicketDate = t.RejectedDate,
+                    StatusMessage = t.RejectedReason,
+                    Assignee = t.Assignee
+                }).ToListAsync();
+
+            return data.AsQueryable();
+        }
+
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetRepeatedlyReRaisedTicketsByDepartmentId(string departmentId)
+        {
+            var data = await _dbContext.tickets
+                .Include(e => e.Employee)
+                .Include(d => d.Department)
+                .Include(i => i.Issue)
+                .Include(p => p.Priority)
+                .Include(s => s.Status)
+                .Where(t => t.DepartmentId == departmentId && t.ReRaiseCount > 1 && t.ReRaiseStatus == true)
+                .OrderByDescending(t => t.CreatedDate)
+                .Select(t => new GetTicketByDepartmentDTO
+                {
+                    TicketId = t.TicketId,
+                    TicketDescription = t.TicketDescription,
+                    Department = t.Department.DepartmentName,
+                    Issue = t.Issue.IssueName,
+                    Priority = t.Priority.PriorityName,
+                    Status = t.Status.StatusName,
+                    ReRaiseStatus = t.ReRaiseStatus,
+                    CreatedDate = t.CreatedDate,
+                    TicketDate = t.RejectedDate,
+                    StatusMessage = t.ReRaiseReason,
+                    ReRaiseCount = t.ReRaiseCount
+                }).ToListAsync();
+
+            return data.AsQueryable();
+        }
+
+}
 }
