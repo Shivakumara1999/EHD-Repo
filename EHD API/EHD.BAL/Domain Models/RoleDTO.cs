@@ -23,5 +23,6 @@ namespace EHD.BAL.Domain_Models
             public string? ModifiedBy { get; set; }
         }
 
+
     }
 }

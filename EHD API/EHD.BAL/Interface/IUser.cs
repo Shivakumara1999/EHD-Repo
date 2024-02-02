@@ -1,4 +1,5 @@
-﻿using EHD.DAL.Models;
+﻿using EHD.BAL.Domain_Models;
+using EHD.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace EHD.BAL.Interface
         Task<IQueryable<Employee>> GetAllEmployeesIsActive(bool? activeStatus);
 
         Task UpdateEmployeeIsActive(IsActiveModel EmployeeEditByActive, bool Is_Active);
+        Task UpdateEmployeeRole(string employeeId, EmployeeRoleDTO emprole);
+        Task<string> GetAssigneeDetails(string ticketId);
     }
 }

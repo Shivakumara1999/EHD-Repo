@@ -14,8 +14,8 @@ namespace EHD.BAL.Templates
     {
         public async Task SendMail(MailTemplateDTO data)
         {
-            string fromAddress = "joyitsolutionsjobs@gmail.com";
-            string password = "ywpcppwquaqrvomb";
+            string fromAddress = "thanushree.u@joyitsolutions.co";
+            string password = "Joyit@321";
             string mailHeader = $"<html><body><h1>{data.MailHeader}<h1></body></html>";
             string mailBody = $"<html><body><h3>{data.MailBody}<h3/></body></html>";
             string mailFooter = $"<html><body><h1>{data.MailFooter}</h1></body></html>";

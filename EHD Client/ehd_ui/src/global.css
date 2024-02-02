@@ -14,7 +14,7 @@ LoginForm.css */
 
 .form-block {
   flex: 1;
-  margin-left: 20px; /* Adjust margin as needed */
+  margin-left: 20px; 
 }
 
 .loginDiv {
@@ -23,8 +23,71 @@ LoginForm.css */
 }
 
 .logo-image {
-  width: 80%; /* Adjust width as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 80%; 
+  height: auto; 
 }
 
-/* Add any other styles you need
+
+.ant-layout .ant-layout-sider{
+    background-color: #003eb3;
+    float: left;
+    width: 20%;
+}
+.ant-layout-content {
+    float: right;
+
+  
+  
+  }
+  .ant-layout .ant-layout-sider-trigger {
+    background-color: #4d84eb;
+  }
+.container {
+    height: 64;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16;
+  }
+  .images {
+    height: 90px; 
+    transition: all 0.3s; 
+  }
+  
+  .images.collapsed {
+    height: 50px; 
+  }
+  .line{
+    width:80%;
+  }
+  .menus{
+    background-color: #003eb3;
+    font-size: 1rem;
+    text-align: left;
+    padding-top: 12px;
+    color: white;
+  }
+ 
+  .tooltip-content {
+    display: flex;
+    align-items: center;
+ 
+   }
+  
+  .tooltip-avatar {
+    display: flex;
+    align-items: center;
+    margin-left: 82%;
+    margin-top: 2%;
+    padding: 0%;
+    
+  }
+ 
+  .arrowdropicon{
+   font-size: 35px;
+
+  } 
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item-icon{
+    font-size: 20px;
+  }
+  

@@ -17,6 +17,16 @@ namespace EHD.BAL.Exceptions
             public EmployeeIdExistException() { }
             public EmployeeIdExistException(string message) : base(message) { }
         }
+        public class EmployeeIdNotNullException : Exception
+        {
+            public EmployeeIdNotNullException() { }
+            public EmployeeIdNotNullException(string message) : base(message) { }
+        }
+        public class EmployeeIdNotExistException : Exception
+        {
+            public EmployeeIdNotExistException() { }
+            public EmployeeIdNotExistException(string message) : base(message) { }
+        }
         public class InvalidGenderException : Exception
         {
             public InvalidGenderException() { }
@@ -113,6 +123,13 @@ namespace EHD.BAL.Exceptions
                     case EmployeeIdExistException:
                         context.Result = new BadRequestObjectResult("EmployeeId already Exists");
                         break;
+                    case EmployeeIdNotNullException:
+                        context.Result = new BadRequestObjectResult("EmployeeId cannot be null or empty");
+                        break;
+                    case EmployeeIdNotExistException:
+                        context.Result = new BadRequestObjectResult("Employee with entered ID is not found");
+                        break;
+
                     case InvalidGenderException:
                         context.Result = new BadRequestObjectResult("Gender Field allows only F and M");
                         break;

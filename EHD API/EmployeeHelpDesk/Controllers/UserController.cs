@@ -1,4 +1,5 @@
-﻿using EHD.BAL.Interface;
+﻿using EHD.BAL.Domain_Models;
+using EHD.BAL.Interface;
 using EHD.DAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -51,6 +52,17 @@ namespace EHD.API.Controllers
         public async Task UpdateEmployeeIsActive(IsActiveModel EmployeeEditByActive, bool Is_Active)
         {
             await _user.UpdateEmployeeIsActive(EmployeeEditByActive, Is_Active);
+        }
+        [HttpPut]
+        public async Task UpdateEmployeeRole(string employeeId, EmployeeRoleDTO emprole)
+        {
+            await _user.UpdateEmployeeRole(employeeId, emprole);
+        }
+
+        [HttpGet]
+        public async Task<string> GetAssigneeDetails(string ticketId)
+        {
+            return await _user.GetAssigneeDetails(ticketId);
         }
     }
 }

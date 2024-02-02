@@ -9,6 +9,7 @@ namespace EHD.BAL.Interface
 {
     public interface ITicket
     {
+        Task CreateTicket(CreateTicketDTO ticketModel);
         Task<bool> UpadteFeedback(string ticketId, FeedbackDTO feedback);
     }
 }
