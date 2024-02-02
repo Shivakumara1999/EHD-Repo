@@ -117,3 +117,20 @@ C:\Users\Bharath K V\Documents\Github\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\
 C:\Users\Bharath K V\Documents\Github\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb
 C:\Users\Bharath K V\Documents\Github\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.genruntimeconfig.cache
 C:\Users\Bharath K V\Documents\Github\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\ref\EHD.BAL.dll
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.deps.json
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.runtimeconfig.json
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.dll
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.pdb
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.dll
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.pdb
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.AssemblyReference.cache
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfoInputs.cache
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfo.cs
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CoreCompileInputs.cache
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CopyComplete
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.dll
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\refint\EHD.BAL.dll
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.genruntimeconfig.cache
+C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\ref\EHD.BAL.dll

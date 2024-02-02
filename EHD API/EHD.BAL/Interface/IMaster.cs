@@ -37,5 +37,17 @@ namespace EHD.BAL.Interface
         Task<List<Priority>> GetActivePriority();
 
         Task<List<Status>> GetActiveStatus();
+
+        //issues
+        Task<IEnumerable<Issue>> GetAllIssueTypes(bool isActive);
+
+        Task<IEnumerable<Issue>> GetActiveIssueType();
+
+        Task AddOrUpdateRole(Role role);
+
+        public IEnumerable<Department> GetActiveDepartments();
+
+        Task AddIssueTypes(List<IssuesDTO> issues);
+
     }
 }

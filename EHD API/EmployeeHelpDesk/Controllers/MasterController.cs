@@ -14,7 +14,7 @@ namespace EHD.API.Controllers
     {
         private readonly IMaster _master;
 
-        public MasterController(IMaster master) 
+        public MasterController(IMaster master)
         {
             _master = master;
         }
@@ -107,7 +107,40 @@ namespace EHD.API.Controllers
             return activeFeedback;
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<Issue>> GetAllIssueTypes(bool isActive)
+        {
+            var issues = await _master.GetAllIssueTypes(isActive);
+            return issues;
+        }
 
+        [HttpGet]
+        public async Task<IEnumerable<Issue>> GetActiveIssueType()
+        {
+            var issues = await _master.GetActiveIssueType();
+            return issues.ToList();
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> AddOrUpdateRole(Role role)
+        {
+            await Task.Run(() => _master.AddOrUpdateRole(role));
+
+            return Ok("Role added or updated successfully.");
+        }
+
+        [HttpGet("GetActiveDepartment")]
+        public IEnumerable<Department> GetActiveDepartments()
+        {
+            var activeDepts = _master.GetActiveDepartments();
+            return activeDepts;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddIssueTypes(List<IssuesDTO> issues)
+        {
+            await _master.AddIssueTypes(issues);
+            return Ok("Issue types added successfully.");
+        }
     }
 }
