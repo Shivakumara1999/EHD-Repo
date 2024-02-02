@@ -4,8 +4,9 @@
     "\\EHD.DAL",
     "\\EHD.DAL\\Models",
     "\\EmployeeHelpDesk",
+    "\\EmployeeHelpDesk\\Controllers",
     "\\EmployeeHelpDesk\\obj"
   ],
-  "SelectedNode": "\\EHD.DAL\\Models\\Ticket.cs",
+  "SelectedNode": "\\EmployeeHelpDesk\\Controllers\\AccountController.cs",
   "PreviewInSolutionExplorer": false
 }
