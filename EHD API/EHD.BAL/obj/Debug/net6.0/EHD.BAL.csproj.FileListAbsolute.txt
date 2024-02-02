@@ -1,0 +1,15 @@
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.deps.json
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.runtimeconfig.json
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.dll
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.pdb
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.AssemblyReference.cache
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfoInputs.cache
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfo.cs
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CoreCompileInputs.cache
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.sourcelink.json
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.dll
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\refint\EHD.BAL.dll
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.genruntimeconfig.cache
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\ref\EHD.BAL.dll

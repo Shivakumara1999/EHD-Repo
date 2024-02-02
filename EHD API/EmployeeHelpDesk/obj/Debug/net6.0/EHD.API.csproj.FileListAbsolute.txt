@@ -86,3 +86,5 @@ D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\refint\EHD.API.dll
 D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\EHD.API.pdb
 D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\EHD.API.genruntimeconfig.cache
 D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\ref\EHD.API.dll
+D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\EHD.BAL.dll
+D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\EHD.BAL.pdb

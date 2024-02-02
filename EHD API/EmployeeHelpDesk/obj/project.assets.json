@@ -1147,6 +1147,20 @@
             "rid": "win"
           }
         }
+      },
+      "EHD.BAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.14"
+        },
+        "compile": {
+          "bin/placeholder/EHD.BAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EHD.BAL.dll": {}
+        }
       }
     }
   },
@@ -3307,10 +3321,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "EHD.BAL/1.0.0": {
+      "type": "project",
+      "path": "../EHD.BAL/EHD.BAL.csproj",
+      "msbuildProject": "../EHD.BAL/EHD.BAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "EHD.BAL >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.14",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.14",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.14",
@@ -3350,7 +3370,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\GitHub\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {
+              "projectPath": "D:\\GitHub\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EHD.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9a8a06664d24974d7172a8ac1482386f78eba07")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba09e5c62243315e960282232dd83627db5f178b")]
 [assembly: System.Reflection.AssemblyProductAttribute("EHD.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EHD.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
