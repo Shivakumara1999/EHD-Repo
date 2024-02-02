@@ -28,12 +28,3 @@ C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\refint\EHD.B
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.genruntimeconfig.cache
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\ref\EHD.BAL.dll
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.AssemblyReference.cache
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfoInputs.cache
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfo.cs
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CoreCompileInputs.cache
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.sourcelink.json
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.dll
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\refint\EHD.BAL.dll
-C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb

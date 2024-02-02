@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace EHD.BAL.Implementations
 {
-    public class AccountRepo 
+    public class AccountRepo : IAccount
     {
-
     }
 }

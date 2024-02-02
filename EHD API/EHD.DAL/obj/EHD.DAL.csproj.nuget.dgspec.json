@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {}
+    "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
+    "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
         "projectName": "EHD.DAL",
-        "projectPath": "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
-        "packagesPath": "C:\\Users\\hi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "packagesPath": "C:\\Users\\Pradeep\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Pradeep\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,10 +47,6 @@
             "Azure.Security.KeyVault.Secrets": {
               "target": "Package",
               "version": "[4.5.0, )"
-            },
-            "Microsoft.AspNetCore.Mvc.Core": {
-              "target": "Package",
-              "version": "[2.2.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -94,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

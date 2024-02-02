@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EHD.BAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4f0b5523e138533e616ad8a8009d2b3b2d5e85d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4c4c44bcc4ecd172374ee252dd178e1d812c8e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("EHD.BAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EHD.BAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
