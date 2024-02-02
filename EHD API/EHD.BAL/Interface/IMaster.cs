@@ -25,6 +25,12 @@ namespace EHD.BAL.Interface
 
         //Roles
         Task AddorUpdateRolesAsync(AddRole role);
+        Task UpdateRoleIsActive(IsActiveModel RolesEditByActive, bool Is_Active);
+
+        
+       Task<IEnumerable<Role>> GetAllRoles(bool isActive);
+
+
 
         //Counts
 
@@ -48,6 +54,9 @@ namespace EHD.BAL.Interface
         public IEnumerable<Department> GetActiveDepartments();
 
         Task AddIssueTypes(List<IssuesDTO> issues);
+
+
+        
 
     }
 }

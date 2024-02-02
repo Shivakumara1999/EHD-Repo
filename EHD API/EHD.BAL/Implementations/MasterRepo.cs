@@ -142,6 +142,28 @@ namespace EHD.BAL.Implementations
             }
         }
 
+        public async Task UpdateRoleIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
+        {
+            var RolesIds = RolesEditByActive.Id;
+
+            var RolesToUpdate = _dbContext.roles
+                .Where(d => RolesIds.Contains(d.RoleId))
+                .ToList();
+
+            foreach (var roles in RolesToUpdate)
+            {
+                roles.IsActive = Is_Active;
+            }
+
+            await _dbContext.SaveChangesAsync();
+        }
+
+
+        public async Task<IEnumerable<Role>> GetAllRoles(bool isActive)
+        {
+            return await _dbContext.roles.Where(d => d.IsActive == isActive).ToListAsync();
+        }
+
         //Counts
 
         public async Task<string> GetUnresolvedTicketCountsAsync()
@@ -286,6 +308,8 @@ namespace EHD.BAL.Implementations
                 await _dbContext.SaveChangesAsync();
             }
         }
+
+
 
     }
 }

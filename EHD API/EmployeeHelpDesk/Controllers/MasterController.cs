@@ -56,6 +56,19 @@ namespace EHD.API.Controllers
         {
             await _master.AddorUpdateRolesAsync(role);
         }
+        [HttpPut]
+        public async Task<IActionResult> UpdateRoleIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
+        {
+            await _master.UpdateRoleIsActive(RolesEditByActive, Is_Active);
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<Role>> GetAllRoles(bool isActive)
+        {
+            var roles = await _master.GetAllRoles(isActive);
+            return roles;
+        }
 
         //Counts
 
