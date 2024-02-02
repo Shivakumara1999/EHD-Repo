@@ -17,6 +17,15 @@ namespace EHD.API.Controllers
             _ticket = ticket;
         }
 
+
+        [HttpPost]
+        public async Task CreateTicket(CreateTicketDTO ticketModel)
+        {
+
+            await _ticket.CreateTicket(ticketModel);
+        }
+
+
         [HttpPut]
         public async Task<IActionResult> UpadteFeedback(string ticketId, [FromBody] FeedbackDTO feedback)
         {

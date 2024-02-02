@@ -1,4 +1,5 @@
-﻿using EHD.BAL.Interface;
+﻿using EHD.BAL.Domain_Models;
+using EHD.BAL.Interface;
 using EHD.DAL.DataContext;
 using EHD.DAL.Models;
 using Microsoft.EntityFrameworkCore;
@@ -111,5 +112,42 @@ namespace EHD.BAL.Implementations
 
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task UpdateEmployeeRole(string employeeId, EmployeeRoleDTO emprole)
+        {
+            if (string.IsNullOrEmpty(employeeId))
+            {
+                throw new EmployeeIdNotNullException();
+            }
+
+            var employee = await _dbContext.employees.FindAsync(employeeId);
+
+            if (employee != null)
+            {
+                employee.RoleId = emprole.RoleId;
+                await _dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                throw new EmployeeIdNotExistException();
+            }
+
+
+        }
+
+        public async Task<string> GetAssigneeDetails(string ticketId)
+        {
+            var Assignee = await (from ticket in _dbContext.tickets
+                                  join department in _dbContext.departments on ticket.DepartmentId equals department.DepartmentId
+                                  join role in _dbContext.roles on department.DepartmentId equals role.DepartmentId
+                                  join employee in _dbContext.employees on role.RoleId equals employee.RoleId
+                                  where ticket.TicketId == ticketId
+                                  select $"{employee.FirstName} {employee.LastName}")
+                                  .FirstOrDefaultAsync();
+
+            return Assignee;
+        }
+
+
     }
 }
