@@ -178,3 +178,7 @@ C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\ref
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\EHD.API.pdb
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\EHD.API.genruntimeconfig.cache
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\ref\EHD.API.dll
+C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\Azure.Security.KeyVault.Secrets.dll
+C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\EHD.DAL.dll
+C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\EHD.DAL.pdb
