@@ -46,3 +46,20 @@ C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\ob
 C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.dll
 C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.pdb
 C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CopyComplete
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.deps.json
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.runtimeconfig.json
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.dll
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.pdb
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.dll
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.pdb
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.AssemblyReference.cache
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfoInputs.cache
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfo.cs
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CoreCompileInputs.cache
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CopyComplete
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.dll
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\refint\EHD.BAL.dll
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.genruntimeconfig.cache
+C:\Users\Sandhya V\Documents\GithubSandhya\dotNet-Projects\Timesheet\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\ref\EHD.BAL.dll

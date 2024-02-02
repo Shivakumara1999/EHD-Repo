@@ -1,12 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\EHD.BAL",
+    "\\EHD.BAL\\Implementations",
     "\\EHD.DAL",
     "\\EHD.DAL\\Models",
     "\\EmployeeHelpDesk",
     "\\EmployeeHelpDesk\\Controllers",
     "\\EmployeeHelpDesk\\obj"
   ],
-  "SelectedNode": "\\EmployeeHelpDesk\\Controllers\\AccountController.cs",
+  "SelectedNode": "\\EmployeeHelpDesk\\EmployeeHelpDesk.sln",
   "PreviewInSolutionExplorer": false
 }
