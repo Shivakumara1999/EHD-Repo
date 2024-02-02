@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\EHD.DAL",
+    "\\EHD.DAL\\Models",
     "\\EmployeeHelpDesk",
     "\\EmployeeHelpDesk\\obj"
   ],
-  "SelectedNode": "\\EmployeeHelpDesk\\Program.cs",
+  "SelectedNode": "\\EHD.DAL\\Models\\Ticket.cs",
   "PreviewInSolutionExplorer": false
 }

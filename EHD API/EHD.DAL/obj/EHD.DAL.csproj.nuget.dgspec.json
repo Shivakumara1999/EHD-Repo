@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {}
+    "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
+    "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
         "projectName": "EHD.DAL",
-        "projectPath": "D:\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
-        "packagesPath": "C:\\Users\\ChandanKumar C L\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "packagesPath": "C:\\Users\\hi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Thanushree S\\Documents\\My GIT\\Joy Help Desk\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ChandanKumar C L\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -52,6 +52,14 @@
             "Azure.Security.KeyVault.Secrets": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
