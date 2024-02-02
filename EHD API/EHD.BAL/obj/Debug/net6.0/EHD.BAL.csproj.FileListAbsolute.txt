@@ -97,3 +97,6 @@ C:\Users\Meghashree\Desktop\Meghashree S Github\EHD-Repo\EHD API\EHD.BAL\obj\Deb
 C:\Users\Meghashree\Desktop\Meghashree S Github\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb
 C:\Users\Meghashree\Desktop\Meghashree S Github\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.genruntimeconfig.cache
 C:\Users\Meghashree\Desktop\Meghashree S Github\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\ref\EHD.BAL.dll
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.dll
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.pdb
+D:\GitHub\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CopyComplete

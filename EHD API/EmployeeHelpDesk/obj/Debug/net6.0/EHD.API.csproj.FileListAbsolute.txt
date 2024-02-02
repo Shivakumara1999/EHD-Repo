@@ -565,3 +565,5 @@ C:\Users\Meghashree\Desktop\Meghashree S Github\EHD-Repo\EHD API\EmployeeHelpDes
 C:\Users\Meghashree\Desktop\Meghashree S Github\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\EHD.API.pdb
 C:\Users\Meghashree\Desktop\Meghashree S Github\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\EHD.API.genruntimeconfig.cache
 C:\Users\Meghashree\Desktop\Meghashree S Github\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\ref\EHD.API.dll
+D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\BCrypt.Net-Next.dll
+D:\GitHub\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

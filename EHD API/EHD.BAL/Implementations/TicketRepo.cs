@@ -81,5 +81,123 @@ namespace EHD.BAL.Implementations
 
             return newTicket;
         }
+
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllActiveTickets(string departmentId)
+        {
+            var data = await _dbContext.tickets
+                .Include(e => e.Employee)
+                .Include(d => d.Department)
+                .Include(i => i.Issue)
+                .Include(p => p.Priority)
+                .Include(s => s.Status)
+                .Where(t => t.DepartmentId == departmentId && (t.StatusId == null || t.StatusId == 1))
+                .OrderByDescending(t => t.CreatedDate)
+                .Select(t => new GetTicketByDepartmentDTO
+                {
+                    TicketId = t.TicketId,
+                    TicketDescription = t.TicketDescription,
+                    Department = t.Department.DepartmentName,
+                    Issue = t.Issue.IssueName,
+                    Priority = t.Priority.PriorityName,
+                    Status = t.Status.StatusName,
+                    ReRaiseStatus = t.ReRaiseStatus,
+                    CreatedDate = t.CreatedDate,
+                    TicketDate = t.DueDate
+                }).ToListAsync();
+
+            return data.AsQueryable();
+        }
+
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllOverDueTickets(string departmentId)
+        {
+            var data = await _dbContext.tickets
+                .Include(e => e.Employee)
+                .Include(d => d.Department)
+                .Include(i => i.Issue)
+                .Include(p => p.Priority)
+                .Include(s => s.Status)
+                .Where(t => t.DepartmentId == departmentId && (t.StatusId == null || t.StatusId == 1)
+                && DateTime.Now > t.DueDate
+                && DateTime.Now < t.DueDate.AddDays(1))
+                .OrderByDescending(t => t.CreatedDate)
+                .Select(t => new GetTicketByDepartmentDTO
+                {
+                    TicketId = t.TicketId,
+                    TicketDescription = t.TicketDescription,
+                    Department = t.Department.DepartmentName,
+                    Issue = t.Issue.IssueName,
+                    Priority = t.Priority.PriorityName,
+                    Status = t.Status.StatusName,
+                    ReRaiseStatus = t.ReRaiseStatus,
+                    CreatedDate = t.CreatedDate,
+                    TicketDate = t.DueDate.AddDays(1)
+                }).ToListAsync();
+
+            return data.AsQueryable();
+        }
+
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllClosedTickets(string departmentId)
+        {
+            var data = await _dbContext.tickets
+                .Include(e => e.Employee)
+                .Include(d => d.Department)
+                .Include(i => i.Issue)
+                .Include(p => p.Priority)
+                .Include(s => s.Status)
+                .Where(t => t.DepartmentId == departmentId && t.StatusId == 3)
+                .OrderByDescending(t => t.CreatedDate)
+                .Select(t => new GetTicketByDepartmentDTO
+                {
+                    TicketId = t.TicketId,
+                    TicketDescription = t.TicketDescription,
+                    Department = t.Department.DepartmentName,
+                    Issue = t.Issue.IssueName,
+                    Priority = t.Priority.PriorityName,
+                    Status = t.Status.StatusName,
+                    ReRaiseStatus = t.ReRaiseStatus,
+                    CreatedDate = t.CreatedDate,
+                    TicketDate = t.ResolvedDate,
+                    StatusMessage = t.ResolvedReason
+                }).ToListAsync();
+
+            return data.AsQueryable();
+        }
+
+        public async Task UpdateTicketStatus(UpdateTicketStatusDTO ticketStatus)
+        {
+            var ticket = _dbContext.tickets.FirstOrDefault(t => t.TicketId == ticketStatus.TicketId);
+
+            if (ticket != null)
+            {
+                ticket.StatusId = ticketStatus.StatusId;
+                switch (ticketStatus.StatusId)
+                {
+                    case 1:
+                        ticket.Assignee = ticketStatus.Assignee;
+                        break;
+                    case 2:
+                        ticket.RejectedReason = ticketStatus.Reason;
+                        break;
+                    case 3:
+                        ticket.ResolvedReason = ticketStatus.Reason;
+                        break;
+                }
+                _dbContext.tickets.Update(ticket);
+                await _dbContext.SaveChangesAsync();
+
+            }
+        }
+
+        public async Task UpdateTicketDepartment(UpdateDepartmentTicketDTO data)
+        {
+            var ticket = await _dbContext.tickets.FirstOrDefaultAsync(t => t.TicketId == data.TicketId);
+            if (ticket != null)
+            {
+                ticket.DepartmentId = data.DepartmentId;
+                _dbContext.tickets.Update(ticket);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
     }
 }
