@@ -314,5 +314,47 @@ namespace EHD.BAL.Implementations
             return data.AsQueryable();
         }
 
-}
+        public string GetCount()
+        {
+            var tickets = _dbContext.tickets.Where(t => t.IsActive == true).ToList();
+            var totalTicketsCount = tickets.Count();
+            var activeTicketsCount = tickets.Count(t => t.StatusId == null || t.StatusId == 1);
+            var overDueTicketsCount = tickets.Count(t => (t.StatusId == null || t.StatusId == 1)
+        && DateTime.Now > t.DueDate
+        && DateTime.Now < t.DueDate.AddDays(1));
+            var closedTicketsCount = tickets.Count(t => t.StatusId == 3);
+            var rejectedTicketsCount = tickets.Count(t => t.StatusId == 2);
+            var reRaisedTicketsCount = tickets.Count(t => t.ReRaiseStatus == true);
+
+            var data = new
+            {
+                totatotalTicketsCount = totalTicketsCount,
+                activeTicketsCount = activeTicketsCount,
+                overDueTicketsCount = overDueTicketsCount,
+                closedTicketsCount = closedTicketsCount,
+                rejectedTicketsCount = rejectedTicketsCount,
+                reRaisedTicketsCount = reRaisedTicketsCount
+
+            };
+
+            return System.Text.Json.JsonSerializer.Serialize(data);
+        }
+
+
+        public async Task<IQueryable> GetIssueTypeByDepartmentId(string departmentId)
+        {
+            var query = from issue in _dbContext.issues
+                        where issue.DepartmentId == departmentId
+                        group issue by new { issue.DepartmentId, issue.IssueName } into grouped
+                        orderby grouped.Key.DepartmentId
+                        select new
+                        {
+                            DepartmentId = grouped.Key.DepartmentId,
+                            IssueName = grouped.Key.IssueName,
+                        };
+
+            var result = await query.ToListAsync();
+            return result.AsQueryable();
+        }
+    }
 }

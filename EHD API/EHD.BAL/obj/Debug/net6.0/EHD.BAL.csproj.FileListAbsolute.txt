@@ -134,3 +134,6 @@ C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\
 C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb
 C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.genruntimeconfig.cache
 C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\ref\EHD.BAL.dll
+C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.dll
+C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.pdb
+C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CopyComplete

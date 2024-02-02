@@ -93,5 +93,17 @@ namespace EHD.API.Controllers
         {
             return await _ticket.GetRepeatedlyReRaisedTicketsByDepartmentId(departmentId);
         }
+        [HttpGet]
+        public string GetCount()
+        {
+
+            return _ticket.GetCount();
+        }
+
+        [HttpGet]
+        public async Task<IQueryable> GetIssueTypeByDepartmentId(string departmentId)
+        {
+            return await _ticket.GetIssueTypeByDepartmentId(departmentId);
+        }
     }
 }

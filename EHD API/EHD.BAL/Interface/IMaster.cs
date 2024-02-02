@@ -56,7 +56,9 @@ namespace EHD.BAL.Interface
         Task AddIssueTypes(List<IssuesDTO> issues);
 
 
-        
+        void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active);
+
+        void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active);
 
     }
 }

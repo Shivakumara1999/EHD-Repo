@@ -309,7 +309,39 @@ namespace EHD.BAL.Implementations
             }
         }
 
+        public void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active)
+        {
+            var IssueIds = IssueEditByActive.Id.Select(int.Parse).ToList();
 
+            var IssueToUpdate = _dbContext.issues
+                .Where(d => IssueIds.Contains(d.IssueId))
+                .ToList();
 
-    }
+            foreach (var issues in IssueToUpdate)
+            {
+                issues.IsActive = Is_Active;
+            }
+
+            _dbContext.SaveChanges();
+        }
+
+        public void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
+        {
+            var RolesIds = RolesEditByActive.Id;
+
+            var RolesToUpdate = _dbContext.roles
+                .Where(d => RolesIds.Contains(d.RoleId))
+                .ToList();
+
+            foreach (var roles in RolesToUpdate)
+            {
+                roles.IsActive = Is_Active;
+            }
+
+            _dbContext.SaveChanges();
+        }
+
+    
+
+}
 }

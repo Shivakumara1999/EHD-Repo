@@ -155,5 +155,18 @@ namespace EHD.API.Controllers
             await _master.AddIssueTypes(issues);
             return Ok("Issue types added successfully.");
         }
+        [HttpPut]
+        public void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active)
+        {
+            _master.EditIssueIsActive(IssueEditByActive, Is_Active);
+        }
+
+
+
+        [HttpPut]
+        public void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
+        {
+            _master.EditRolesIsActive(RolesEditByActive, Is_Active);
+        }
     }
 }
