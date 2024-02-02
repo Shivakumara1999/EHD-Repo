@@ -73,6 +73,41 @@ namespace EHD.API.Controllers
             return Ok(reRaisedCounts);
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<Feedback>>> GetActiveFeedback()
+        {
+            var activeFeedback = await _master.GetActiveFeedback();
+            if (activeFeedback == null)
+            {
+                return NotFound();
+            }
+            return activeFeedback;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Priority>>> GetActivePriority()
+        {
+            var activeFeedback = await _master.GetActivePriority();
+            if (activeFeedback == null)
+            {
+                return NotFound();
+            }
+            return activeFeedback;
+        }
+
+
+        [HttpGet]
+        public async Task<ActionResult<List<Status>>> GetActiveStatus()
+        {
+            var activeFeedback = await _master.GetActiveStatus();
+            if (activeFeedback == null)
+            {
+                return NotFound();
+            }
+            return activeFeedback;
+        }
+
+
 
     }
 }

@@ -32,6 +32,10 @@ namespace EHD.BAL.Interface
 
         Task<string> GetReRaisedTicketCountsAsync();
 
+        Task<List<Feedback>> GetActiveFeedback();
 
+        Task<List<Priority>> GetActivePriority();
+
+        Task<List<Status>> GetActiveStatus();
     }
 }

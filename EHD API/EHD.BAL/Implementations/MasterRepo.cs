@@ -184,6 +184,20 @@ namespace EHD.BAL.Implementations
             return System.Text.Json.JsonSerializer.Serialize(reRaisedCounts);
         }
 
+        public async Task<List<Feedback>> GetActiveFeedback()
+        {
+            return await _dbContext.feedbacks.Where(f => f.IsActive == true).ToListAsync();
+        }
+
+        public async Task<List<Priority>> GetActivePriority()
+        {
+            return await _dbContext.priorities.Where(f => f.IsActive == true).ToListAsync();
+        }
+
+        public async Task<List<Status>> GetActiveStatus()
+        {
+            return await _dbContext.status.Where(f => f.IsActive == true).ToListAsync();
+        }
 
 
     }

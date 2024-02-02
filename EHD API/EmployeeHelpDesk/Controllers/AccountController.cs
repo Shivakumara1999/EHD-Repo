@@ -33,6 +33,7 @@ namespace EHD.API.Controllers
         {
             _accountsContext.ForgotPassword(forgot);
         }
+
         [HttpPost("ChangePassword")]
         public void ResetPassword(ChangePasswordDTO change)
         {
