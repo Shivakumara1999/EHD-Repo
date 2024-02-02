@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HAJWG9ogxxpKLumNmjW11HVWoEul7dMD+dLtXKmq2Mi3nwBLFYN6OabKQ1+REpd1N3EAU3GgPDeHU+TRb/mpmA==",
+  "dgSpecHash": "vRbGj+gVrevL68qJ0e2yqH2tvfgDpLiIsRIs5o+2O9aM1jGxeQQ+BNIylU8MR+iXhs6/e7LIf1nE41vTyxCwXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\EHD.API.csproj",
+  "projectFilePath": "C:\\Users\\Indu B T\\Documents\\GitHub\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\EHD.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hi\\.nuget\\packages\\azure.core\\1.36.0\\azure.core.1.36.0.nupkg.sha512",
     "C:\\Users\\hi\\.nuget\\packages\\azure.identity\\1.10.4\\azure.identity.1.10.4.nupkg.sha512",
@@ -11,6 +11,7 @@
     "C:\\Users\\hi\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\hi\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\hi\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\hi\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.0\\microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
     "C:\\Users\\hi\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\hi\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\hi\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",

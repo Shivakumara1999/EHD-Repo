@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EHD.BAL.Domain_Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace EHD.BAL.Interface
 {
     public interface ITicket
     {
+        Task<bool> UpadteFeedback(string ticketId, FeedbackDTO feedback);
     }
 }

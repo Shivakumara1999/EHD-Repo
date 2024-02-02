@@ -57,8 +57,6 @@ namespace EHD.API.Controllers
             await _master.AddorUpdateRolesAsync(role);
         }
 
-
-
         //Counts
 
         [HttpGet]

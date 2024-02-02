@@ -69,7 +69,6 @@ namespace EHD.BAL.Implementations
             await _dbContext.SaveChangesAsync();
         }
 
-
         public async Task<IEnumerable<Department>> GetAllDepartmentsAsync()
         {
             return await _dbContext.departments.ToListAsync();
@@ -142,7 +141,6 @@ namespace EHD.BAL.Implementations
                 await _dbContext.SaveChangesAsync();
             }
         }
-
 
         //Counts
 

@@ -44,7 +44,7 @@ namespace EHD.DAL.Models
         public int Salary { get; set; }
 
         [Required(ErrorMessage = "Designation is required")]
-        public string Designation { get; set; }
+        public string? Designation { get; set; }
 
         [Required(ErrorMessage = "Role Id is required")]
         [ForeignKey("RoleId")]
@@ -52,11 +52,9 @@ namespace EHD.DAL.Models
 
         [Required(ErrorMessage = "Department Id is required")]
         [ForeignKey("DepartmentId")]
-        public string DepartmentId { get; set; }
+        public string? DepartmentId { get; set; }
 
-        [Required(ErrorMessage = "Password is required")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,20}$", ErrorMessage = "Password must be between 8 and 20 characters long and include at least one uppercase letter, one lowercase letter, and one digit.")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         public int? Otp { get; set; }
 

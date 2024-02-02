@@ -4,7 +4,10 @@ using EHD.BAL.Implementations;
 using EHD.BAL.Interface;
 using EHD.BAL.Templates;
 using EHD.DAL.DataContext;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,36 @@ SecretClient secretClient = new SecretClient(new Uri(keyVaultUrl), clientdetails
 var connectionStringSecretName = keyVaultConfig["secretName"];
 var connectionStringSecret = secretClient.GetSecret(connectionStringSecretName);
 var connectionString = connectionStringSecret.Value.Value;
+//token generation secret key
+var secretKeyName = keyVaultConfig["secretkey"];
+var secretValue = secretClient.GetSecret(secretKeyName);
+var secretKey = secretValue.Value.Value;
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    try
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"], //(Array because it can have a list of issuers and audience)
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["azure:secretkey"]))
+        };
+    }
+    catch (Exception e)
+    {
+        throw new Exception(e.Message);
+    }
+});
 
 builder.Services.AddDbContext<EHDContext>(options => options.UseSqlServer(connectionString));
 
