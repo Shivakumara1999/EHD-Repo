@@ -1,0 +1,30 @@
+LoginForm.css */
+
+.login-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.image-block {
+  flex: 1;
+}
+
+.form-block {
+  flex: 1;
+  margin-left: 20px; /* Adjust margin as needed */
+}
+
+.loginDiv {
+  color: #391085;
+  font-size: 35px;
+}
+
+.logo-image {
+  width: 80%; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Add any other styles you need
