@@ -11,5 +11,19 @@ namespace EHD.BAL.Interface
     {
         Task CreateTicket(CreateTicketDTO ticketModel);
         Task<bool> UpadteFeedback(string ticketId, FeedbackDTO feedback);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetAllActiveTickets(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetAllOverDueTickets(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetAllClosedTickets(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetAllRejectedTickets(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetAllReRaisedTickets(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetUnresolvedTicketsByDepartmentId(string departmentId);
+        Task<IQueryable<GetTicketByDepartmentDTO>> GetRepeatedlyReRaisedTicketsByDepartmentId(string departmentId);
+        Task UpdateTicketStatus(UpdateTicketStatusDTO ticketStatus);
+        Task UpdateTicketDepartment(UpdateDepartmentTicketDTO data);
+        string GetCount();
+        Task<IQueryable> GetIssueTypeByDepartmentId(string departmentId);
+
+        Task<bool> UpdateTicketAsync(string ticketId, Re_raisedDTO reRaisedDto);
+        Task<getTicketsByEmpIdDTO> GetTicketDetailsAsync(string? Empid);
     }
 }

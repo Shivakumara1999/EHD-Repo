@@ -25,6 +25,12 @@ namespace EHD.BAL.Interface
 
         //Roles
         Task AddorUpdateRolesAsync(AddRole role);
+        Task UpdateRoleIsActive(IsActiveModel RolesEditByActive, bool Is_Active);
+
+        
+       Task<IEnumerable<Role>> GetAllRoles(bool isActive);
+
+
 
         //Counts
 
@@ -32,6 +38,27 @@ namespace EHD.BAL.Interface
 
         Task<string> GetReRaisedTicketCountsAsync();
 
+        Task<List<Feedback>> GetActiveFeedback();
+
+        Task<List<Priority>> GetActivePriority();
+
+        Task<List<Status>> GetActiveStatus();
+
+        //issues
+        Task<IEnumerable<Issue>> GetAllIssueTypes(bool isActive);
+
+        Task<IEnumerable<Issue>> GetActiveIssueType();
+
+        Task AddOrUpdateRole(Role role);
+
+        public IEnumerable<Department> GetActiveDepartments();
+
+        Task AddIssueTypes(List<IssuesDTO> issues);
+
+
+        void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active);
+
+        void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active);
 
     }
 }

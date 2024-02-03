@@ -17,12 +17,12 @@ namespace EHD.API.Controllers
         {
             _accountsContext = account;       
         }
-        [HttpPost("CandidateLogin")]
+        [HttpPost]
         public IActionResult LoginCandidate(LoginDTO login)
         {
             return Ok(_accountsContext.Login(login));
         }
-        [HttpPost("ForgotPassword")]
+        [HttpPost]
         public void OtpGeneration(string email)
         {
             _accountsContext.OtpGeneration(email);
@@ -33,7 +33,8 @@ namespace EHD.API.Controllers
         {
             _accountsContext.ForgotPassword(forgot);
         }
-        [HttpPost("ChangePassword")]
+
+        [HttpPost]
         public void ResetPassword(ChangePasswordDTO change)
         {
             _accountsContext.ChangePassword(change);
