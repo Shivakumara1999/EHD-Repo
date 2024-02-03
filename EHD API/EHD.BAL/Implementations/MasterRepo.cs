@@ -21,7 +21,7 @@ namespace EHD.BAL.Implementations
 
         public MasterRepo(EHDContext dbContext)
         {
-            _dbContext = dbContext;
+            _dbContext = dbContext; 
         }
 
         //Department
@@ -142,28 +142,6 @@ namespace EHD.BAL.Implementations
             }
         }
 
-        public async Task UpdateRoleIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
-        {
-            var RolesIds = RolesEditByActive.Id;
-
-            var RolesToUpdate = _dbContext.roles
-                .Where(d => RolesIds.Contains(d.RoleId))
-                .ToList();
-
-            foreach (var roles in RolesToUpdate)
-            {
-                roles.IsActive = Is_Active;
-            }
-
-            await _dbContext.SaveChangesAsync();
-        }
-
-
-        public async Task<IEnumerable<Role>> GetAllRoles(bool isActive)
-        {
-            return await _dbContext.roles.Where(d => d.IsActive == isActive).ToListAsync();
-        }
-
         //Counts
 
         public async Task<string> GetUnresolvedTicketCountsAsync()
@@ -206,142 +184,7 @@ namespace EHD.BAL.Implementations
             return System.Text.Json.JsonSerializer.Serialize(reRaisedCounts);
         }
 
-        public async Task<List<Feedback>> GetActiveFeedback()
-        {
-            return await _dbContext.feedbacks.Where(f => f.IsActive == true).ToListAsync();
-        }
-
-        public async Task<List<Priority>> GetActivePriority()
-        {
-            return await _dbContext.priorities.Where(f => f.IsActive == true).ToListAsync();
-        }
-
-        public async Task<List<Status>> GetActiveStatus()
-        {
-            return await _dbContext.status.Where(f => f.IsActive == true).ToListAsync();
-        }
-
-        //issues
-        public async Task<IEnumerable<Issue>> GetAllIssueTypes(bool isActive)
-        {
-            return await _dbContext.issues.Where(d => d.IsActive == isActive).ToListAsync();
-        }
 
 
-        public async Task<IEnumerable<Issue>> GetActiveIssueType()
-        {
-            return await _dbContext.issues.Where(d => d.IsActive == true).ToListAsync();
-        }
-
-
-        public async Task AddOrUpdateRole(Role role)
-        {
-            var RolesById = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleId == role.RoleId);
-            var RolesByName = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleName == role.RoleName);
-
-            if (RolesById == null)
-            {
-                {
-                    if (RolesByName == null)
-                    {
-                        var newRole = new Role
-                        {
-                            RoleId = role.RoleId,
-                            RoleName = role.RoleName,
-                            CreatedBy = role.CreatedBy,
-                            CreatedDate = DateTime.Now,
-                            DepartmentId = role.DepartmentId
-                        };
-                        _dbContext.roles.Add(newRole);
-                        await _dbContext.SaveChangesAsync();
-
-                    }
-                    else
-                    {
-                        throw new RoleIdNotExistException();
-                    }
-                }
-            }
-            else
-            {
-                RolesById.RoleId = role.RoleId;
-
-                if (RolesByName != null)
-                {
-                    RolesById.RoleName = role.RoleName;
-                    RolesById.ModifiedBy = role.ModifiedBy;
-                    RolesById.ModifiedDate = DateTime.Now;
-
-                }
-                else
-                {
-                    throw new RoleNameNotExistException();
-                }
-                await _dbContext.SaveChangesAsync();
-            }
-        }
-
-
-        public IEnumerable<Department> GetActiveDepartments()
-        {
-            return _dbContext.departments
-                .Where(d => d.IsActive)
-                .Select(d => new Department { DepartmentId = d.DepartmentId, DepartmentName = d.DepartmentName, IsActive =d.IsActive })
-                .ToList();
-        }
-
-        public async Task AddIssueTypes(List<IssuesDTO> issues)
-        {
-            foreach (var issueDto in issues)
-            {
-                var issue = new Issue
-                {
-                    IssueName = issueDto.IssueName,
-                    DepartmentId = issues[0].DepartmentId,
-                    CreatedDate = DateTime.Now,
-                    IsActive = true,
-                    CreatedBy = issueDto.EmployeeId
-                };
-
-                _dbContext.issues.Add(issue);
-
-                await _dbContext.SaveChangesAsync();
-            }
-        }
-
-        public void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active)
-        {
-            var IssueIds = IssueEditByActive.Id.Select(int.Parse).ToList();
-
-            var IssueToUpdate = _dbContext.issues
-                .Where(d => IssueIds.Contains(d.IssueId))
-                .ToList();
-
-            foreach (var issues in IssueToUpdate)
-            {
-                issues.IsActive = Is_Active;
-            }
-
-            _dbContext.SaveChanges();
-        }
-
-        public void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
-        {
-            var RolesIds = RolesEditByActive.Id;
-
-            var RolesToUpdate = _dbContext.roles
-                .Where(d => RolesIds.Contains(d.RoleId))
-                .ToList();
-
-            foreach (var roles in RolesToUpdate)
-            {
-                roles.IsActive = Is_Active;
-            }
-
-            _dbContext.SaveChanges();
-        }
-
-    
-
-}
+    }
 }

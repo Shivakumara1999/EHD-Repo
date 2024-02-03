@@ -14,7 +14,7 @@ namespace EHD.API.Controllers
     {
         private readonly IMaster _master;
 
-        public MasterController(IMaster master)
+        public MasterController(IMaster master) 
         {
             _master = master;
         }
@@ -56,19 +56,6 @@ namespace EHD.API.Controllers
         {
             await _master.AddorUpdateRolesAsync(role);
         }
-        [HttpPut]
-        public async Task<IActionResult> UpdateRoleIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
-        {
-            await _master.UpdateRoleIsActive(RolesEditByActive, Is_Active);
-            return Ok();
-        }
-
-        [HttpGet]
-        public async Task<IEnumerable<Role>> GetAllRoles(bool isActive)
-        {
-            var roles = await _master.GetAllRoles(isActive);
-            return roles;
-        }
 
         //Counts
 
@@ -86,87 +73,6 @@ namespace EHD.API.Controllers
             return Ok(reRaisedCounts);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<Feedback>>> GetActiveFeedback()
-        {
-            var activeFeedback = await _master.GetActiveFeedback();
-            if (activeFeedback == null)
-            {
-                return NotFound();
-            }
-            return activeFeedback;
-        }
 
-        [HttpGet]
-        public async Task<ActionResult<List<Priority>>> GetActivePriority()
-        {
-            var activeFeedback = await _master.GetActivePriority();
-            if (activeFeedback == null)
-            {
-                return NotFound();
-            }
-            return activeFeedback;
-        }
-
-
-        [HttpGet]
-        public async Task<ActionResult<List<Status>>> GetActiveStatus()
-        {
-            var activeFeedback = await _master.GetActiveStatus();
-            if (activeFeedback == null)
-            {
-                return NotFound();
-            }
-            return activeFeedback;
-        }
-
-        [HttpGet]
-        public async Task<IEnumerable<Issue>> GetAllIssueTypes(bool isActive)
-        {
-            var issues = await _master.GetAllIssueTypes(isActive);
-            return issues;
-        }
-
-        [HttpGet]
-        public async Task<IEnumerable<Issue>> GetActiveIssueType()
-        {
-            var issues = await _master.GetActiveIssueType();
-            return issues.ToList();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddOrUpdateRole(Role role)
-        {
-            await Task.Run(() => _master.AddOrUpdateRole(role));
-
-            return Ok("Role added or updated successfully.");
-        }
-
-        [HttpGet("GetActiveDepartment")]
-        public IEnumerable<Department> GetActiveDepartments()
-        {
-            var activeDepts = _master.GetActiveDepartments();
-            return activeDepts;
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddIssueTypes(List<IssuesDTO> issues)
-        {
-            await _master.AddIssueTypes(issues);
-            return Ok("Issue types added successfully.");
-        }
-        [HttpPut]
-        public void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active)
-        {
-            _master.EditIssueIsActive(IssueEditByActive, Is_Active);
-        }
-
-
-
-        [HttpPut]
-        public void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
-        {
-            _master.EditRolesIsActive(RolesEditByActive, Is_Active);
-        }
     }
 }

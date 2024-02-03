@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {}
+    "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {}
   },
   "projects": {
-    "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
+    "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
         "projectName": "EHD.DAL",
-        "projectPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "packagesPath": "C:\\Users\\Supritha S\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Supritha S\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
