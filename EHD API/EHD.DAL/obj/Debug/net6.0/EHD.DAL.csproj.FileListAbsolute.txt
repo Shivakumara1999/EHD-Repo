@@ -113,3 +113,18 @@ C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.DAL\obj\Debug\
 C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.pdb
 C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.genruntimeconfig.cache
 C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\ref\EHD.DAL.dll
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\bin\Debug\net6.0\EHD.DAL.deps.json
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\bin\Debug\net6.0\EHD.DAL.runtimeconfig.json
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\bin\Debug\net6.0\EHD.DAL.dll
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\bin\Debug\net6.0\EHD.DAL.pdb
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.csproj.AssemblyReference.cache
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.GeneratedMSBuildEditorConfig.editorconfig
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.AssemblyInfoInputs.cache
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.AssemblyInfo.cs
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.csproj.CoreCompileInputs.cache
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.sourcelink.json
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.dll
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\refint\EHD.DAL.dll
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.pdb
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\EHD.DAL.genruntimeconfig.cache
+E:\Hackthon\EHD-Repo\EHD API\EHD.DAL\obj\Debug\net6.0\ref\EHD.DAL.dll

@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static EHD.BAL.Domain_Models.DepartmentDTO;
 using static EHD.BAL.Domain_Models.RoleDTO;
+using static EHD.BAL.Exceptions.AllExceptions;
 
 namespace EHD.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [CustomExceptionFilter]
     public class MasterController : ControllerBase
     {
         private readonly IMaster _master;

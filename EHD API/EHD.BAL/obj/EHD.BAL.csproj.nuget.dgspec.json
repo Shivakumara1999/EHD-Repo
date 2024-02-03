@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {}
+    "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {
+    "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
+        "projectUniqueName": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
         "projectName": "EHD.BAL",
-        "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
-        "packagesPath": "C:\\Users\\Pradeep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\obj\\",
+        "projectPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.BAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Pradeep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
-                "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj"
+              "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
+                "projectPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj"
               }
             }
           }
@@ -101,21 +105,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
+    "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "projectUniqueName": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
         "projectName": "EHD.DAL",
-        "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
-        "packagesPath": "C:\\Users\\Pradeep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
+        "projectPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Pradeep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -198,7 +206,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
