@@ -759,3 +759,4 @@ C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EmployeeHelpDesk\o
 C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\ref\EHD.API.dll
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\BCrypt.Net-Next.dll
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

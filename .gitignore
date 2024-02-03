@@ -1,0 +1,7 @@
+
+*.cache
+*.cache
+EHD API/EHD.DAL/obj/Debug/net6.0/EHD.DAL.csproj.CoreCompileInputs.cache
+EHD API/EHD.DAL/obj/Debug/net6.0/EHD.DAL.dll
+*.dll
+*.pdb
