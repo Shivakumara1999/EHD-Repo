@@ -4214,24 +4214,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Pradeep\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Hackthon\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\EHD.API.csproj",
+      "projectUniqueName": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\EHD.API.csproj",
       "projectName": "EHD.API",
-      "projectPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\EHD.API.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\obj\\",
+      "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\EHD.API.csproj",
+      "packagesPath": "C:\\Users\\Pradeep\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Pradeep\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4245,11 +4240,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {
-              "projectPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj"
+            "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {
+              "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj"
             },
-            "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
-              "projectPath": "E:\\Hackthon\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj"
+            "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
+              "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj"
             }
           }
         }
@@ -4328,7 +4323,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

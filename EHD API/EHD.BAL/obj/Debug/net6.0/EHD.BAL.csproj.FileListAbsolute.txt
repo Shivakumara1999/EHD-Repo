@@ -137,21 +137,3 @@ C:\Users\Subhash R\Documents\GitHub\HelpDesk\EHD-Repo\EHD API\EHD.BAL\obj\Debug\
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.dll
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.pdb
 C:\Users\Pradeep\GIT DATA\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CopyComplete
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.deps.json
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.runtimeconfig.json
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.dll
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.BAL.pdb
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.dll
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\bin\Debug\net6.0\EHD.DAL.pdb
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.AssemblyReference.cache
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.GeneratedMSBuildEditorConfig.editorconfig
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfoInputs.cache
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.AssemblyInfo.cs
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CoreCompileInputs.cache
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.sourcelink.json
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.csproj.CopyComplete
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.dll
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\refint\EHD.BAL.dll
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.pdb
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\EHD.BAL.genruntimeconfig.cache
-E:\Hackthon\EHD-Repo\EHD API\EHD.BAL\obj\Debug\net6.0\ref\EHD.BAL.dll
