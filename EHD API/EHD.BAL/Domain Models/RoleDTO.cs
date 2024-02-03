@@ -11,7 +11,7 @@ namespace EHD.BAL.Domain_Models
     {
         public class AddRole
         {
-           
+            public string? RoleId { get; set; }
 
             public string RoleName { get; set; }
 

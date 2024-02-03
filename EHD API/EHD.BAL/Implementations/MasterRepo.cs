@@ -28,19 +28,13 @@ namespace EHD.BAL.Implementations
 
         public async Task AddOrUpdateDepartmentAsync(AddDepartment department)
         {
+
             var departmentList = await _dbContext.departments.ToListAsync();
-
-
-            var recentDepartmentId = departmentList
-                .OrderByDescending(t => t.DepartmentId.Length >= 2 ? GetNumericPart(t.DepartmentId) : 0)
-                .FirstOrDefault();
-
-
+            var recentDepartmentId = departmentList.OrderByDescending(t => t.DepartmentId.Length >= 2 ? GetNumericPart(t.DepartmentId) : 0).FirstOrDefault();
             int Digits = recentDepartmentId != null ? GetNumericPart(recentDepartmentId.DepartmentId) : 0;
 
 
-            var existingDepartment = await _dbContext.departments
-                .FirstOrDefaultAsync(e => e.DepartmentName == department.DepartmentName);
+            var existingDepartment = await _dbContext.departments.FirstOrDefaultAsync(e => e.DepartmentId == department.DepartmentId);
 
             if (existingDepartment == null)
             {
@@ -55,17 +49,23 @@ namespace EHD.BAL.Implementations
                 };
 
                 _dbContext.departments.Add(newDepartment);
+
             }
             else
-            {
 
-                existingDepartment.DepartmentName = department.DepartmentName;
-                existingDepartment.ModifiedBy = department.ModifiedBy;
-                existingDepartment.ModifiedDate = DateTime.Now;
+            {
+                if (existingDepartment != null)
+                {
+                    existingDepartment.DepartmentName = department.DepartmentName;
+                    existingDepartment.ModifiedBy = department.ModifiedBy;
+                    existingDepartment.ModifiedDate = DateTime.Now;
+                }
+
             }
 
-
             await _dbContext.SaveChangesAsync();
+
+
         }
 
         private int GetNumericPart(string input)
@@ -117,7 +117,7 @@ namespace EHD.BAL.Implementations
             int Digits = recentRoleId != null ? GetNumericPart(recentRoleId.RoleId) : 0;
 
 
-            var existingrole = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleName == role.RoleName);
+            var existingrole = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleId == role.RoleId);
 
             if (existingrole == null)
             {
@@ -137,10 +137,14 @@ namespace EHD.BAL.Implementations
             else
             {
 
-                existingrole.RoleName = role.RoleName;
-                existingrole.DepartmentId = role.DepartmentId;
-                existingrole.ModifiedBy = role.ModifiedBy;
-                existingrole.ModifiedDate = DateTime.Now;
+                if (existingrole != null)
+                {
+                    existingrole.RoleId = role.RoleId;
+                    existingrole.RoleName = role.RoleName;
+                    existingrole.DepartmentId = role.DepartmentId;
+                    existingrole.ModifiedBy = role.ModifiedBy;
+                    existingrole.ModifiedDate = DateTime.Now;
+                }
             }
 
 
