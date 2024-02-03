@@ -319,10 +319,10 @@ namespace EHD.BAL.Implementations
         {
             var query = from issue in _dbContext.issues
                         where issue.DepartmentId == departmentId
-                        group issue by new { issue.DepartmentId, issue.IssueName } into grouped
+                        group issue by new { issue.DepartmentId, issue.IssueName , issue.IssueId} into grouped
                         orderby grouped.Key.DepartmentId
                         select new
-                        {
+                        { issueid = grouped.Key.IssueId,
                             DepartmentId = grouped.Key.DepartmentId,
                             IssueName = grouped.Key.IssueName,
                         };
