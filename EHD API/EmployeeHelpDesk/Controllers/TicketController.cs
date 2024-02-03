@@ -105,5 +105,26 @@ namespace EHD.API.Controllers
         {
             return await _ticket.GetIssueTypeByDepartmentId(departmentId);
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateTicket(string ticketId, [FromBody] Re_raisedDTO reRaisedDto)
+        {
+            var result = await _ticket.UpdateTicketAsync(ticketId, reRaisedDto);
+
+            if (result)
+            {
+                return Ok(new { Message = "Ticket updated successfully." });
+            }
+
+            return NotFound(new { Message = "Ticket not found." });
+        }
+
+
+        [HttpGet]
+
+        public async Task<getTicketsByEmpIdDTO> GetTicketDetailsAsync(string id)
+        {
+            return await _ticket.GetTicketDetailsAsync(id);
+        }
     }
 }
