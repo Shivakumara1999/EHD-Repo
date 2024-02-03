@@ -76,9 +76,8 @@ namespace EHD.BAL.Domain_Models
         public string TicketId { get; set; }
         public int? StatusId { get; set; }
         public string? AssigneeId { get; set; }
-        public string? Assignee { get; set; }
         public string? Reason { get; set; }
-        public string EmployeeId { get; set; }
+        //public string EmployeeId { get; set; }
     }
 
 }

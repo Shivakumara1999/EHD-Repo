@@ -54,6 +54,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
@@ -82,6 +83,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
@@ -108,6 +110,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
@@ -125,6 +128,7 @@ namespace EHD.BAL.Implementations
         public async Task UpdateTicketStatus(UpdateTicketStatusDTO ticketStatus)
         {
             var ticket = _dbContext.tickets.FirstOrDefault(t => t.TicketId == ticketStatus.TicketId);
+            var assignee = _dbContext.employees.FirstOrDefault(e => e.EmployeeId == ticketStatus.AssigneeId);
 
             if (ticket != null)
             {
@@ -132,8 +136,8 @@ namespace EHD.BAL.Implementations
                 switch (ticketStatus.StatusId)
                 {
                     case 1:
-                        ticket.AssigneeId = ticketStatus.EmployeeId;
-                        ticket.Assignee = ticketStatus.Assignee;
+                        ticket.AssigneeId = assignee.EmployeeId;
+                        ticket.Assignee = assignee.FirstName + " " + assignee.LastName;
                         break;
                     case 2:
                         ticket.RejectedReason = ticketStatus.Reason;
@@ -173,6 +177,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
@@ -201,6 +206,7 @@ namespace EHD.BAL.Implementations
                 {
                     TicketId = t.TicketId,
                     TicketDescription = t.TicketDescription,
+                    UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
                     Priority = t.Priority.PriorityName,
@@ -280,27 +286,29 @@ namespace EHD.BAL.Implementations
             return data.AsQueryable();
         }
 
-        public string GetCount()
+        public string GetCount(string departmentId)
         {
-            var tickets = _dbContext.tickets.Where(t => t.IsActive == true).ToList();
+            var tickets = _dbContext.tickets
+                .Where(t => t.IsActive == true && t.DepartmentId == departmentId)
+                .ToList();
+
             var totalTicketsCount = tickets.Count();
             var activeTicketsCount = tickets.Count(t => t.StatusId == null || t.StatusId == 1);
             var overDueTicketsCount = tickets.Count(t => (t.StatusId == null || t.StatusId == 1)
-        && DateTime.Now > t.DueDate
-        && DateTime.Now < t.DueDate.AddDays(1));
+                && DateTime.Now > t.DueDate
+                && DateTime.Now < t.DueDate.AddDays(1));
             var closedTicketsCount = tickets.Count(t => t.StatusId == 3);
             var rejectedTicketsCount = tickets.Count(t => t.StatusId == 2);
             var reRaisedTicketsCount = tickets.Count(t => t.ReRaiseStatus == true);
 
             var data = new
             {
-                totatotalTicketsCount = totalTicketsCount,
+                totalTicketsCount = totalTicketsCount,
                 activeTicketsCount = activeTicketsCount,
                 overDueTicketsCount = overDueTicketsCount,
                 closedTicketsCount = closedTicketsCount,
                 rejectedTicketsCount = rejectedTicketsCount,
                 reRaisedTicketsCount = reRaisedTicketsCount
-
             };
 
             return System.Text.Json.JsonSerializer.Serialize(data);
@@ -349,31 +357,29 @@ namespace EHD.BAL.Implementations
             }
             return false;
         }
-        public async Task<getTicketsByEmpIdDTO> GetTicketDetailsAsync(string? Empid)
+        public async Task<List<getTicketsByEmpIdDTO>> GetTicketDetailsAsync(string? Empid)
         {
-            var employeeId = Empid;
-
-            var ticketDetails = await (from t in _dbContext.tickets
-                                       join d in _dbContext.departments on t.DepartmentId equals d.DepartmentId
-                                       join i in _dbContext.issues on t.IssueId equals i.IssueId
-                                       join s in _dbContext.status on t.StatusId equals s.StatusId
-                                       join f in _dbContext.feedbacks on t.FeedbackId equals f.FeedbackId
-                                       join e in _dbContext.employees on t.EmployeeId equals e.EmployeeId
-                                       join r in _dbContext.roles on e.RoleId equals r.RoleId
-                                       where e.EmployeeId == employeeId
-                                       select new getTicketsByEmpIdDTO
-                                       {
-                                           TicketId = t.TicketId,
-                                           TicketDescription = t.TicketDescription,
-                                           ResolvedDate = t.ResolvedDate,
-                                           CreatedDate = t.CreatedDate,
-                                           DueDate = t.DueDate,
-                                           DepartmentName = d.DepartmentName,
-                                           IssueName = i.IssueName,
-                                           StatusName = s.StatusName,
-                                           FeedbackType = f.FeedbackType,
-                                           Assignee = $"{e.FirstName} {e.LastName}"
-                                       }).FirstOrDefaultAsync();
+            var ticketDetails = await _dbContext.tickets
+                .Include(e => e.Employee)
+                .Include(d => d.Department)
+                .Include(i => i.Issue)
+                .Include(s => s.Status)
+                .Include(f => f.Feedback)
+                .Where(t => t.EmployeeId == Empid)
+                .Select(t => new getTicketsByEmpIdDTO
+                {
+                    TicketId = t.TicketId,
+                    TicketDescription = t.TicketDescription,
+                    ResolvedDate = t.ResolvedDate,
+                    CreatedDate = t.CreatedDate,
+                    DueDate = t.DueDate,
+                    DepartmentName = t.Department.DepartmentName,
+                    IssueName = t.Issue.IssueName,
+                    StatusName = t.Status.StatusName,
+                    FeedbackType = t.Feedback.FeedbackType,
+                    Assignee = t.Assignee
+                })
+                .ToListAsync();
 
             return ticketDetails;
         }

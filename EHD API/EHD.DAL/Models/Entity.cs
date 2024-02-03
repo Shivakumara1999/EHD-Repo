@@ -12,7 +12,7 @@ namespace EHD.DAL.Models
         public DateTime? ModifiedDate { get; set; }
         public string CreatedBy { get; set; }
         public string? ModifiedBy { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
     }
 }

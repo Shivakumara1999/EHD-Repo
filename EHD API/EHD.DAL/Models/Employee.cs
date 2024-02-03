@@ -20,7 +20,7 @@ namespace EHD.DAL.Models
         public string? LastName { get; set; }
 
         [Required(ErrorMessage = "Gender is required")]
-        public char Gender { get; set; }
+        public string Gender { get; set; }
 
         [Required(ErrorMessage = "Official Mail Id is required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
@@ -30,7 +30,7 @@ namespace EHD.DAL.Models
         public string? AlternateMailId { get; set; }
 
         [Required(ErrorMessage = "Contact Number is required")]
-        [RegularExpression(@"^\d{6,12}$", ErrorMessage = "Contact Number must be between 6 and 12 digits")]
+        [RegularExpression(@"^\d{1,10}$", ErrorMessage = "Contact Number must be between 6 and 12 digits")]
         [StringLength(12, MinimumLength = 6)]
         public string ContactNumber { get; set; }
 

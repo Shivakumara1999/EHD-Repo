@@ -94,10 +94,10 @@ namespace EHD.API.Controllers
             return await _ticket.GetRepeatedlyReRaisedTicketsByDepartmentId(departmentId);
         }
         [HttpGet]
-        public string GetCount()
+        public string GetCount(string departmentId)
         {
 
-            return _ticket.GetCount();
+            return _ticket.GetCount(departmentId);
         }
 
         [HttpGet]
@@ -122,7 +122,7 @@ namespace EHD.API.Controllers
 
         [HttpGet]
 
-        public async Task<getTicketsByEmpIdDTO> GetTicketDetailsAsync(string id)
+        public async Task<List<getTicketsByEmpIdDTO>> GetTicketDetailsAsync(string? id)
         {
             return await _ticket.GetTicketDetailsAsync(id);
         }

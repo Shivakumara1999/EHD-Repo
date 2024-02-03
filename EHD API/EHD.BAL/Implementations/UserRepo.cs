@@ -32,7 +32,7 @@ namespace EHD.BAL.Implementations
                 throw new EmployeeIdExistException();
             }
 
-            char[] allowedGenders = { 'F', 'M' };
+            string[] allowedGenders = { "F", "M" };
 
             if (!allowedGenders.Contains(employee.Gender))
             {
