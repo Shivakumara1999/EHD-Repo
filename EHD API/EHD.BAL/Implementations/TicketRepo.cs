@@ -41,48 +41,7 @@ namespace EHD.BAL.Implementations
         }
 
 
-        private Ticket GenerateTicket(CreateTicketDTO ticketModel)
-        {
-            var ticketsList = _dbContext.tickets.ToList();
-            var recentTicketId = ticketsList.OrderByDescending(t => t.TicketId.Length >= 4 ? int.Parse(t.TicketId.Substring(t.TicketId.Length - 4)) : 0).FirstOrDefault();
-            int Digits = recentTicketId != null ? int.Parse(recentTicketId.TicketId.Substring(recentTicketId.TicketId.Length - 4)) : 0;
-            var departmentList = _dbContext.departments.FirstOrDefault(d => d.DepartmentId == ticketModel.DepartmentId);
-            string department = departmentList != null ? departmentList.DepartmentName.Substring(0, Math.Min(3, departmentList.DepartmentName.Length)) : "TK";
-
-            Ticket newTicket = new Ticket
-            {
-                TicketId = recentTicketId == null ? $"JOY{department.ToUpper()}0001" : $"JOY{department.ToUpper()}{Digits + 1:D4}",
-                TicketDescription = ticketModel.TicketDescription,
-                EmployeeId = ticketModel.EmployeeId,
-                DepartmentId = ticketModel.DepartmentId,
-                IssueId = ticketModel.IssueId,
-                PriorityId = ticketModel.PriorityId,
-                CreatedDate = DateTime.UtcNow,
-                CreatedBy = ticketModel.CreatedBy,
-                IsActive = ticketModel.IsActive,
-                ReRaiseStatus = false,
-            };
-
-            switch (ticketModel.PriorityId)
-            {
-                case 1:
-                    newTicket.DueDate = newTicket.CreatedDate.AddDays(7);
-                    break;
-                case 2:
-                    newTicket.DueDate = newTicket.CreatedDate.AddDays(3);
-                    break;
-                case 3:
-                    newTicket.DueDate = newTicket.CreatedDate.AddDays(1);
-                    break;
-                default:
-                    newTicket.DueDate = ticketModel.DueDate;
-                    break;
-            }
-
-            return newTicket;
-        }
-
-        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllActiveTickets(string departmentId)
+      public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllActiveTickets(string departmentId)
         {
             var data = await _dbContext.tickets
                 .Include(e => e.Employee)
@@ -173,6 +132,7 @@ namespace EHD.BAL.Implementations
                 switch (ticketStatus.StatusId)
                 {
                     case 1:
+                        ticket.AssigneeId = ticketStatus.EmployeeId;
                         ticket.Assignee = ticketStatus.Assignee;
                         break;
                     case 2:
@@ -271,6 +231,7 @@ namespace EHD.BAL.Implementations
                 {
                     TicketId = t.TicketId,
                     EmployeeId = t.EmployeeId,
+                    UserName=t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
@@ -280,7 +241,8 @@ namespace EHD.BAL.Implementations
                     CreatedDate = t.CreatedDate,
                     TicketDate = t.RejectedDate,
                     StatusMessage = t.RejectedReason,
-                    Assignee = t.Assignee
+                    AssigneeId = t.AssigneeId,
+                    Assignee=t.Assignee,
                 }).ToListAsync();
 
             return data.AsQueryable();
@@ -300,6 +262,8 @@ namespace EHD.BAL.Implementations
                 {
                     TicketId = t.TicketId,
                     TicketDescription = t.TicketDescription,
+                    UserName = t.Employee.FirstName + " " + t.Employee.LastName,
+                    EmployeeId = t.EmployeeId,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
                     Priority = t.Priority.PriorityName,
@@ -308,7 +272,9 @@ namespace EHD.BAL.Implementations
                     CreatedDate = t.CreatedDate,
                     TicketDate = t.RejectedDate,
                     StatusMessage = t.ReRaiseReason,
-                    ReRaiseCount = t.ReRaiseCount
+                    ReRaiseCount = t.ReRaiseCount,
+                    AssigneeId= t.AssigneeId,
+                    Assignee=t.Assignee,
                 }).ToListAsync();
 
             return data.AsQueryable();
@@ -392,7 +358,7 @@ namespace EHD.BAL.Implementations
                                        join i in _dbContext.issues on t.IssueId equals i.IssueId
                                        join s in _dbContext.status on t.StatusId equals s.StatusId
                                        join f in _dbContext.feedbacks on t.FeedbackId equals f.FeedbackId
-                                       join e in _dbContext.employees on t.DepartmentId equals e.DepartmentId
+                                       join e in _dbContext.employees on t.EmployeeId equals e.EmployeeId
                                        join r in _dbContext.roles on e.RoleId equals r.RoleId
                                        where e.EmployeeId == employeeId
                                        select new getTicketsByEmpIdDTO
@@ -406,10 +372,54 @@ namespace EHD.BAL.Implementations
                                            IssueName = i.IssueName,
                                            StatusName = s.StatusName,
                                            FeedbackType = f.FeedbackType,
-                                           Assignee = e.FirstName
+                                           Assignee = $"{e.FirstName} {e.LastName}"
                                        }).FirstOrDefaultAsync();
 
             return ticketDetails;
         }
+
+
+
+        private Ticket GenerateTicket(CreateTicketDTO ticketModel)
+        {
+            var ticketsList = _dbContext.tickets.ToList();
+            var recentTicketId = ticketsList.OrderByDescending(t => t.TicketId.Length >= 4 ? int.Parse(t.TicketId.Substring(t.TicketId.Length - 4)) : 0).FirstOrDefault();
+            int Digits = recentTicketId != null ? int.Parse(recentTicketId.TicketId.Substring(recentTicketId.TicketId.Length - 4)) : 0;
+            var departmentList = _dbContext.departments.FirstOrDefault(d => d.DepartmentId == ticketModel.DepartmentId);
+            string department = departmentList != null ? departmentList.DepartmentName.Substring(0, Math.Min(3, departmentList.DepartmentName.Length)) : "TK";
+
+            Ticket newTicket = new Ticket
+            {
+                TicketId = recentTicketId == null ? $"JOY{department.ToUpper()}0001" : $"JOY{department.ToUpper()}{Digits + 1:D4}",
+                TicketDescription = ticketModel.TicketDescription,
+                EmployeeId = ticketModel.EmployeeId,
+                DepartmentId = ticketModel.DepartmentId,
+                IssueId = ticketModel.IssueId,
+                PriorityId = ticketModel.PriorityId,
+                CreatedDate = DateTime.UtcNow,
+                CreatedBy = ticketModel.CreatedBy,
+                IsActive = ticketModel.IsActive,
+                ReRaiseStatus = false,
+            };
+
+            switch (ticketModel.PriorityId)
+            {
+                case 1:
+                    newTicket.DueDate = newTicket.CreatedDate.AddDays(7);
+                    break;
+                case 2:
+                    newTicket.DueDate = newTicket.CreatedDate.AddDays(3);
+                    break;
+                case 3:
+                    newTicket.DueDate = newTicket.CreatedDate.AddDays(1);
+                    break;
+                default:
+                    newTicket.DueDate = ticketModel.DueDate;
+                    break;
+            }
+
+            return newTicket;
+        }
+
     }
 }

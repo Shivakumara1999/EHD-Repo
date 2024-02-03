@@ -26,7 +26,7 @@ namespace EHD.DAL.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string OfficialMailId { get; set; }
 
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+       
         public string? AlternateMailId { get; set; }
 
         [Required(ErrorMessage = "Contact Number is required")]
@@ -44,15 +44,13 @@ namespace EHD.DAL.Models
         public int Salary { get; set; }
 
         [Required(ErrorMessage = "Designation is required")]
-        public string? Designation { get; set; }
+        public string Designation { get; set; }
 
-        [Required(ErrorMessage = "Role Id is required")]
+        
         [ForeignKey("RoleId")]
         public string? RoleId { get; set; }
 
-        [Required(ErrorMessage = "Department Id is required")]
-        [ForeignKey("DepartmentId")]
-        public string? DepartmentId { get; set; }
+      
 
         public string? Password { get; set; }
 

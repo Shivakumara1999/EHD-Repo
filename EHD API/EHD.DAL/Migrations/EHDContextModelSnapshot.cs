@@ -72,10 +72,6 @@ namespace EHD.DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DepartmentId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Designation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -115,11 +111,9 @@ namespace EHD.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoleId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Salary")
@@ -298,6 +292,9 @@ namespace EHD.DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Assignee")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AssigneeId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")

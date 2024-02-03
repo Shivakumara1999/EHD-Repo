@@ -10,7 +10,7 @@ namespace EHD.BAL.Domain_Models
     { 
       public class AddDepartment
       { 
-        public string DepartmentId { get; set; }
+    
 
         public string DepartmentName { get; set; }
 

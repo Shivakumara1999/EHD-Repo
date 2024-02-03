@@ -49,7 +49,7 @@ namespace EHD.BAL.Implementations
                     new Claim(ClaimTypes.Email, model.OfficialMailId),
                     new Claim("OfficialMailId", user.OfficialMailId),
                     new Claim("RoleId", user.RoleId),
-                    new Claim("DepartmentId",user.DepartmentId),
+                   
                     new Claim("EmployeeId",user.EmployeeId)
              };
                 var tokenKey = _configuration.GetSection("azure:secretkey").Value!;

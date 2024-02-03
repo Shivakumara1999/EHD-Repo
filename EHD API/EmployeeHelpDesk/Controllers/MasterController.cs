@@ -63,8 +63,9 @@ namespace EHD.API.Controllers
             return Ok();
         }
 
+
         [HttpGet]
-        public async Task<IEnumerable<Role>> GetAllRoles(bool isActive)
+        public async Task<IEnumerable<GetRoleDTO>> GetAllRoles(bool isActive)
         {
             var roles = await _master.GetAllRoles(isActive);
             return roles;
@@ -119,9 +120,11 @@ namespace EHD.API.Controllers
             }
             return activeFeedback;
         }
+        //Issues
+
 
         [HttpGet]
-        public async Task<IEnumerable<Issue>> GetAllIssueTypes(bool isActive)
+        public async Task<IEnumerable<GetAllIssueTypesDTO>> GetAllIssueTypes(bool isActive)
         {
             var issues = await _master.GetAllIssueTypes(isActive);
             return issues;
@@ -142,7 +145,7 @@ namespace EHD.API.Controllers
             return Ok("Role added or updated successfully.");
         }
 
-        [HttpGet("GetActiveDepartment")]
+        [HttpGet]
         public IEnumerable<Department> GetActiveDepartments()
         {
             var activeDepts = _master.GetActiveDepartments();

@@ -11,16 +11,24 @@ namespace EHD.BAL.Domain_Models
     {
         public class AddRole
         {
-            public string RoleId { get; set; }
+           
 
             public string RoleName { get; set; }
 
             [ForeignKey("DepartmentId")]
-            public string DepartmentId { get; set; }
+            public string? DepartmentId { get; set; }
 
             public string? CreatedBy { get; set; }
 
             public string? ModifiedBy { get; set; }
+        }
+        public class GetRoleDTO
+        {
+            public string RoleId { get; set; }
+            public string RoleName { get; set; }
+            public string DepartmentName { get; set; }
+            public string? CreatedBy { get; set; }
+            public DateTime CreatedDate { get; set; }
         }
 
 
