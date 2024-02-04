@@ -10,14 +10,14 @@
         "projectUniqueName": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
         "projectName": "EHD.BAL",
         "projectPath": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
-        "packagesPath": "C:\\Users\\hi\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Sandhya V\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EHD.BAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sandhya V\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -116,14 +116,14 @@
         "projectUniqueName": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
         "projectName": "EHD.DAL",
         "projectPath": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
-        "packagesPath": "C:\\Users\\hi\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Sandhya V\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sandhya V\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -218,14 +218,14 @@
         "projectUniqueName": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\EHD.API.csproj",
         "projectName": "EHD.API",
         "projectPath": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\EHD.API.csproj",
-        "packagesPath": "C:\\Users\\hi\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Sandhya V\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Sandhya V\\Documents\\GithubSandhya\\dotNet-Projects\\Timesheet\\EHD-Repo\\EHD API\\EmployeeHelpDesk\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sandhya V\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -54,6 +54,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    EmployeeId= t.EmployeeId,
                     UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
@@ -83,6 +84,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    EmployeeId = t.EmployeeId,
                     UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
@@ -110,6 +112,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    EmployeeId = t.EmployeeId,
                     UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
@@ -177,6 +180,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    EmployeeId = t.EmployeeId,
                     UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
@@ -205,6 +209,7 @@ namespace EHD.BAL.Implementations
                 .Select(t => new GetTicketByDepartmentDTO
                 {
                     TicketId = t.TicketId,
+                    EmployeeId = t.EmployeeId,
                     TicketDescription = t.TicketDescription,
                     UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     Department = t.Department.DepartmentName,
