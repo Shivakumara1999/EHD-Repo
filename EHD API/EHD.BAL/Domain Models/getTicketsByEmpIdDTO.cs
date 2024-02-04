@@ -16,6 +16,7 @@ namespace EHD.BAL.Domain_Models
         public string StatusName { get; set; }
         public string FeedbackType { get; set; }
         public string Assignee { get; set; }
+        public string AssigneeId { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime CreatedDate { get; set; }
 

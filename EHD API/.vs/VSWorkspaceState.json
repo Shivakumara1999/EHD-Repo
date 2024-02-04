@@ -10,6 +10,6 @@
     "\\EmployeeHelpDesk\\Controllers",
     "\\EmployeeHelpDesk\\obj"
   ],
-  "SelectedNode": "\\EHD.DAL\\Migrations\\20240204090949_ehd7.cs",
+  "SelectedNode": "\\EHD.BAL\\Implementations\\TicketRepo.cs",
   "PreviewInSolutionExplorer": false
 }

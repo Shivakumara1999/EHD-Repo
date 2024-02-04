@@ -40,9 +40,7 @@ namespace EHD.BAL.Implementations
                          {
                              DepartmentId = d.DepartmentId,
                              DepartmentName = d.DepartmentName
-                         }).FirstOrDefault();
-
-
+                         }).ToList();
             if (user == null)
             {
                 throw new UserNotFound();
@@ -61,10 +59,16 @@ namespace EHD.BAL.Implementations
                     new Claim(ClaimTypes.Email, model.OfficialMailId),
                     new Claim("OfficialMailId", user.OfficialMailId),
                     new Claim("RoleId", user.RoleId),
-                    new Claim("DepartmentId", query.DepartmentId),
-                    new Claim("DepartmentName", query.DepartmentName),
                     new Claim("EmployeeId",user.EmployeeId)
                 };
+                if (query != null && query.Count > 0)
+                {
+                    claims.Add(new Claim("DepartmentId", query[0].DepartmentId));
+                }
+                else
+                {
+                    claims.Add(new Claim("DepartmentId", " "));
+                }
                 var tokenKey = _configuration.GetSection("azure:secretkey").Value!;
                 var keyBytes = Encoding.UTF8.GetBytes(tokenKey);
                 var sha512 = SHA512.Create();
