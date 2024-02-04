@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static EHD.BAL.Domain_Models.DepartmentDTO;
+using static EHD.BAL.Domain_Models.DesignationDTO;
 using static EHD.BAL.Domain_Models.RoleDTO;
 
 namespace EHD.BAL.Interface
@@ -22,6 +23,15 @@ namespace EHD.BAL.Interface
         Task EditDepartmentsIsActiveAsync(IsActiveModel departmentEditByActive, bool is_Active);
 
         Task<IEnumerable<Department>> GetDepartmentsByActiveAsync(bool isActive);
+
+        //Designations
+        Task AddOrUpdateDesignations(AddDesignation designation);
+
+        Task<IQueryable> GetAllDesignations();
+
+        Task EditDesignationsIsActive(IsActiveModel designationEditByActive, bool is_Active);
+
+        Task<IEnumerable<Designations>> GetDesignationsByActive(bool isActive);
 
         //Roles
         Task AddorUpdateRolesAsync(AddRole role);

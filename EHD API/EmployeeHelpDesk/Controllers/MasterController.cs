@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using static EHD.BAL.Domain_Models.DepartmentDTO;
+using static EHD.BAL.Domain_Models.DesignationDTO;
 using static EHD.BAL.Domain_Models.RoleDTO;
 
 namespace EHD.API.Controllers
@@ -49,6 +50,32 @@ namespace EHD.API.Controllers
             return departments;
         }
 
+        //Designations
+
+        [HttpPost]
+        public async Task AddOrUpdateDesignations(AddDesignation designation)
+        {
+            await _master.AddOrUpdateDesignations(designation);
+        }
+
+        [HttpGet]
+        public async Task<IQueryable> GetAllDesignations()
+        {
+          return  await _master.GetAllDesignations();
+
+        }
+
+        [HttpPut]
+        public async Task EditDesignationsIsActive(IsActiveModel designationEditByActive, bool Is_Active)
+        {
+            await _master.EditDesignationsIsActive(designationEditByActive, Is_Active);
+        }
+        [HttpGet]
+        public async Task<IEnumerable<Designations>> GetDesignationsByActive(bool isActive)
+        {
+           return await _master.GetDesignationsByActive(isActive);
+            
+        }
 
         //Roles
 

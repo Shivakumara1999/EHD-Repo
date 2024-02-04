@@ -78,7 +78,7 @@ namespace EHD.BAL.Implementations
                 existingEmployee.Location = employee.Location;
                 existingEmployee.JoiningDate = employee.JoiningDate;
                 existingEmployee.Salary = employee.Salary;
-                existingEmployee.Designation = employee.Designation;
+                existingEmployee.DesignationId = employee.DesignationId;
                 existingEmployee.RoleId = employee.RoleId;
                 existingEmployee.Gender = employee.Gender;
                 existingEmployee.ModifiedDate = DateTime.Now;

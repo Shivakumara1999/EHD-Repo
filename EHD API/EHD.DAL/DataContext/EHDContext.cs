@@ -14,6 +14,7 @@ namespace EHD.DAL.DataContext
 
         public DbSet<Department> departments { get; set; }
         public DbSet<Employee> employees { get; set; }
+        public DbSet<Designations> designations { get; set; }
         public DbSet<Feedback> feedbacks { get; set; }
         public DbSet<Issue> issues { get; set; }
         public DbSet<Priority> priorities { get; set; }

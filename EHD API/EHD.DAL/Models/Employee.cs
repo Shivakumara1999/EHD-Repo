@@ -43,8 +43,8 @@ namespace EHD.DAL.Models
         [Required(ErrorMessage = "Salary is required")]
         public int Salary { get; set; }
 
-        [Required(ErrorMessage = "Designation is required")]
-        public string Designation { get; set; }
+        [ForeignKey("DesignationId")]
+        public int DesignationId { get; set; }
 
         
         [ForeignKey("RoleId")]

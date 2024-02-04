@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static EHD.BAL.Domain_Models.DepartmentDTO;
+using static EHD.BAL.Domain_Models.DesignationDTO;
 using static EHD.BAL.Domain_Models.RoleDTO;
 using static EHD.BAL.Exceptions.AllExceptions;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -19,6 +20,7 @@ namespace EHD.BAL.Implementations
     public class MasterRepo : IMaster
     {
         private readonly EHDContext _dbContext;
+        private object designations;
 
         public MasterRepo(EHDContext dbContext)
         {
@@ -119,6 +121,67 @@ namespace EHD.BAL.Implementations
         }
 
 
+        //Desigantions
+
+        public async Task AddOrUpdateDesignations(AddDesignation designation)
+        {
+            var existingDesignation = await _dbContext.designations.FirstOrDefaultAsync(e => e.DesignationId == designation.DesignationId);
+
+            if (existingDesignation == null)
+            {
+                
+                var newDesignation = new Designations
+                {
+                    Designation = designation.Designation,
+                    CreatedBy = designation.CreatedBy,
+                    CreatedDate = DateTime.Now
+                };
+
+                _dbContext.designations.Add(newDesignation);
+            }
+            else
+            {
+                existingDesignation.Designation = designation.Designation;
+                existingDesignation.ModifiedBy = designation.ModifiedBy;
+                existingDesignation.ModifiedDate = DateTime.Now;
+            }
+
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IQueryable> GetAllDesignations()
+        {
+           
+                var query = from designations in _dbContext.designations
+                            select new
+                            {
+                                DesignationId = designations.DesignationId,
+                                Designation = designations.Designation
+                            };
+                return query;
+            
+        }
+
+       public async Task EditDesignationsIsActive(IsActiveModel designationEditByActive, bool Is_Active)
+        {
+            var DesignationIds = designationEditByActive.Id.Select(int.Parse).ToList();
+
+            var DesignationToUpdate = _dbContext.designations
+                .Where(d => DesignationIds.Contains(d.DesignationId))
+                .ToList();
+
+            foreach (var designation in DesignationToUpdate)
+            {
+                designation.IsActive = Is_Active;
+            }
+
+            _dbContext.SaveChanges();
+        }
+
+        public async Task<IEnumerable<Designations>> GetDesignationsByActive(bool isActive)
+        {
+            return await _dbContext.designations.Where(d => d.IsActive == isActive).ToListAsync();
+        }
 
 
         //Roles
