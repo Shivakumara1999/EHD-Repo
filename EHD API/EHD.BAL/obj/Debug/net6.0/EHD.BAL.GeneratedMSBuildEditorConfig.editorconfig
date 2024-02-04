@@ -8,6 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = EHD.BAL
-build_property.ProjectDir = C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EHD.BAL\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Users\Supritha S\OneDrive\Documents\GitHub\EHD-Repo\EHD API\EHD.BAL\

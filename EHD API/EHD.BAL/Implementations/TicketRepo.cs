@@ -341,7 +341,7 @@ namespace EHD.BAL.Implementations
             {
                 return false;
             }
-            if (ticket.StatusId == 3)
+            if (ticket.StatusId == 3 || ticket.StatusId == 2)
             {
                 ticket.ReRaiseReason = reRaisedDto.ReRaiseReason;
                 if (ticket.ReRaiseCount == null)
