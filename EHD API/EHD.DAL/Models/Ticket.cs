@@ -15,7 +15,7 @@ namespace EHD.DAL.Models
         public string TicketId { get; set; }
 
         public string? TicketDescription { get; set; }
-
+        public string? AssigneeId { get; set; }
         public string? Assignee { get; set; }
 
         [ForeignKey("EmployeeId")]

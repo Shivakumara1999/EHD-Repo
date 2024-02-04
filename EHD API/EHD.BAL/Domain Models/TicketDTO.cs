@@ -60,6 +60,7 @@ namespace EHD.BAL.Domain_Models
         public DateTime? CreatedDate { get; set; }
         public DateTime? TicketDate { get; set; }
         public string EmployeeId { get; set; }
+        public string? AssigneeId { get; set; }
         public string? Assignee { get; set; }
 
     }
@@ -70,12 +71,13 @@ namespace EHD.BAL.Domain_Models
         public string DepartmentId { get; set; }
     }
 
-    public class UpdateTicketStatusDTO : MailTemplateDTO
+    public class UpdateTicketStatusDTO
     {
         public string TicketId { get; set; }
         public int? StatusId { get; set; }
-        public string? Assignee { get; set; }
+        public string? AssigneeId { get; set; }
         public string? Reason { get; set; }
+        //public string EmployeeId { get; set; }
     }
 
 }

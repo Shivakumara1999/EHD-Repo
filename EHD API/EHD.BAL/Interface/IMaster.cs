@@ -27,8 +27,8 @@ namespace EHD.BAL.Interface
         Task AddorUpdateRolesAsync(AddRole role);
         Task UpdateRoleIsActive(IsActiveModel RolesEditByActive, bool Is_Active);
 
-        
-       Task<IEnumerable<Role>> GetAllRoles(bool isActive);
+
+        Task<IEnumerable<GetRoleDTO>> GetAllRoles(bool isActive);
 
 
 
@@ -45,7 +45,7 @@ namespace EHD.BAL.Interface
         Task<List<Status>> GetActiveStatus();
 
         //issues
-        Task<IEnumerable<Issue>> GetAllIssueTypes(bool isActive);
+        Task<IEnumerable<GetAllIssueTypesDTO>> GetAllIssueTypes(bool isActive);
 
         Task<IEnumerable<Issue>> GetActiveIssueType();
 

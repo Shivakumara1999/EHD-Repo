@@ -16,10 +16,11 @@ namespace EHD.BAL.Implementations
     public class UserRepo : IUser
     {
         private readonly EHDContext _dbContext;
-
-        public UserRepo(EHDContext dbContext)
+        private readonly IMailTemplate _mail;
+        public UserRepo(EHDContext dbContext, IMailTemplate mail)
         {
             _dbContext = dbContext;
+            _mail = mail;
         }
 
         public async Task<string> AddOrUpdateEmployee(Employee employee)
@@ -31,7 +32,7 @@ namespace EHD.BAL.Implementations
                 throw new EmployeeIdExistException();
             }
 
-            char[] allowedGenders = { 'F', 'M' };
+            string[] allowedGenders = { "F", "M" };
 
             if (!allowedGenders.Contains(employee.Gender))
             {
@@ -53,8 +54,19 @@ namespace EHD.BAL.Implementations
 
             if (existingEmployee == null)
             {
-                employee.Password = BCrypt.Net.BCrypt.HashPassword("Joyit@321");
+                employee.CreatedDate = DateTime.Now;
+                string autopassw = "Joyit@321";
+                employee.Password = BCrypt.Net.BCrypt.HashPassword(autopassw);
                 _dbContext.employees.Add(employee);
+                var newUser = new MailTemplateDTO
+                {
+                    ToAddress = employee.OfficialMailId,
+                    Subject = "HelpDesk Login Credentials",
+                    MailHeader = autopassw,
+                    MailBody = "Here is the password to access your HelpDesk. Please keep it confidential, and remember that you have the option to change it at any time.",
+                    MailFooter = "From Joy Help Desk team! "
+                };
+                _mail.SendMail(newUser);
             }
             else
             {
@@ -67,8 +79,9 @@ namespace EHD.BAL.Implementations
                 existingEmployee.Salary = employee.Salary;
                 existingEmployee.Designation = employee.Designation;
                 existingEmployee.RoleId = employee.RoleId;
-                existingEmployee.DepartmentId = employee.DepartmentId;
                 existingEmployee.Gender = employee.Gender;
+                existingEmployee.ModifiedDate = DateTime.Now;
+                existingEmployee.ModifiedBy = employee.ModifiedBy;
 
                 _dbContext.Entry(existingEmployee).State = EntityState.Modified;
             }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {}
+    "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {
+    "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
+        "projectUniqueName": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
         "projectName": "EHD.BAL",
-        "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
-        "packagesPath": "C:\\Users\\Pradeep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.BAL\\obj\\",
+        "projectPath": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.BAL\\EHD.BAL.csproj",
+        "packagesPath": "C:\\Users\\Supritha S\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.BAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pradeep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Supritha S\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
-                "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj"
+              "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
+                "projectPath": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj"
               }
             }
           }
@@ -101,21 +101,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
+    "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
         "projectName": "EHD.DAL",
-        "projectPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
-        "packagesPath": "C:\\Users\\Pradeep\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pradeep\\GIT DATA\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\EHD.DAL.csproj",
+        "packagesPath": "C:\\Users\\Supritha S\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Supritha S\\OneDrive\\Documents\\GitHub\\EHD-Repo\\EHD API\\EHD.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Pradeep\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Supritha S\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -198,7 +198,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

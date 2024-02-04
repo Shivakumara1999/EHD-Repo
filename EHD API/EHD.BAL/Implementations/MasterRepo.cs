@@ -28,45 +28,51 @@ namespace EHD.BAL.Implementations
 
         public async Task AddOrUpdateDepartmentAsync(AddDepartment department)
         {
-            var DepartmentById = await _dbContext.departments.FirstOrDefaultAsync(e => e.DepartmentId == department.DepartmentId);
-            var DepartmentByName = await _dbContext.departments.FirstOrDefaultAsync(e => e.DepartmentName == department.DepartmentName);
 
-            if (DepartmentById == null)
+            var departmentList = await _dbContext.departments.ToListAsync();
+            var recentDepartmentId = departmentList.OrderByDescending(t => t.DepartmentId.Length >= 2 ? GetNumericPart(t.DepartmentId) : 0).FirstOrDefault();
+            int Digits = recentDepartmentId != null ? GetNumericPart(recentDepartmentId.DepartmentId) : 0;
+
+
+            var existingDepartment = await _dbContext.departments.FirstOrDefaultAsync(e => e.DepartmentId == department.DepartmentId);
+
+            if (existingDepartment == null)
             {
-                if (DepartmentByName == null)
-                {
-                    var newDepartment = new Department
-                    {
-                        DepartmentId = department.DepartmentId,
-                        DepartmentName = department.DepartmentName,
-                        CreatedBy = department.CreatedBy,
-                        CreatedDate = DateTime.Now
-                    };
 
-                    _dbContext.departments.Add(newDepartment);
-                }
-                else
+                var newDepartment = new Department
                 {
-                    throw new DepartmentIdNotExistException();
-                }
+
+                    DepartmentId = recentDepartmentId == null ? $"D01" : $"D{Digits + 1:D2}",
+                    DepartmentName = department.DepartmentName,
+                    CreatedBy = department.CreatedBy,
+                    CreatedDate = DateTime.Now
+                };
+
+                _dbContext.departments.Add(newDepartment);
+
             }
             else
-            {
-                DepartmentById.DepartmentId = department.DepartmentId;
 
-                if (DepartmentByName == null)
+            {
+                if (existingDepartment != null)
                 {
-                    DepartmentById.DepartmentName = department.DepartmentName;
-                    DepartmentById.ModifiedBy = department.ModifiedBy;
-                    DepartmentById.ModifiedDate = DateTime.Now;
+                    existingDepartment.DepartmentName = department.DepartmentName;
+                    existingDepartment.ModifiedBy = department.ModifiedBy;
+                    existingDepartment.ModifiedDate = DateTime.Now;
                 }
-                else
-                {
-                    throw new DepartmentNameExistException();
-                }
+
             }
 
             await _dbContext.SaveChangesAsync();
+
+
+        }
+
+        private int GetNumericPart(string input)
+        {
+           
+            string numericPart = new string(input.Reverse().TakeWhile(char.IsDigit).Reverse().ToArray());
+            return int.TryParse(numericPart, out int result) ? result : 0;
         }
 
         public async Task<IEnumerable<Department>> GetAllDepartmentsAsync()
@@ -100,46 +106,49 @@ namespace EHD.BAL.Implementations
 
         public async Task AddorUpdateRolesAsync(AddRole role)
         {
-            var RolesById = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleId == role.RoleId);
-            var RolesByName = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleName == role.RoleName);
+            var roleList = await _dbContext.roles.ToListAsync();
 
-            if (RolesById == null)
+
+            var recentRoleId = roleList
+                .OrderByDescending(t => t.RoleId.Length >= 2 ? GetNumericPart(t.RoleId) : 0)
+                .FirstOrDefault();
+
+
+            int Digits = recentRoleId != null ? GetNumericPart(recentRoleId.RoleId) : 0;
+
+
+            var existingrole = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleId == role.RoleId);
+
+            if (existingrole == null)
             {
-                if (RolesByName == null)
+
+                var newRole = new Role
                 {
-                    var newRole = new Role
-                    {
-                        RoleId = role.RoleId,
-                        RoleName = role.RoleName,
-                        CreatedBy = role.CreatedBy,
-                        CreatedDate = DateTime.Now,
-                        DepartmentId = role.DepartmentId
-                    };
-                    _dbContext.roles.Add(newRole);
-                    await _dbContext.SaveChangesAsync();
-                }
-                else
-                {
-                    throw new RoleIdNotExistException();
-                }
+
+                    RoleId = recentRoleId == null ? $"R01" : $"R{Digits + 1:D2}",
+                    RoleName = role.RoleName,
+                    DepartmentId = role.DepartmentId,
+                    CreatedBy = role.CreatedBy,
+                    CreatedDate = DateTime.Now
+                };
+
+                _dbContext.roles.Add(newRole);
             }
             else
             {
-                RolesById.RoleId = role.RoleId;
 
-                if (RolesByName != null)
+                if (existingrole != null)
                 {
-                    RolesById.RoleName = role.RoleName;
-                    RolesById.ModifiedBy = role.ModifiedBy;
-                    RolesById.ModifiedDate = DateTime.Now;
+                    existingrole.RoleId = role.RoleId;
+                    existingrole.RoleName = role.RoleName;
+                    existingrole.DepartmentId = role.DepartmentId;
+                    existingrole.ModifiedBy = role.ModifiedBy;
+                    existingrole.ModifiedDate = DateTime.Now;
                 }
-                else
-                {
-                    throw new RoleNameNotExistException();
-                }
-
-                await _dbContext.SaveChangesAsync();
             }
+
+
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task UpdateRoleIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
@@ -159,10 +168,26 @@ namespace EHD.BAL.Implementations
         }
 
 
-        public async Task<IEnumerable<Role>> GetAllRoles(bool isActive)
+        public async Task<IEnumerable<GetRoleDTO>> GetAllRoles(bool isActive)
         {
-            return await _dbContext.roles.Where(d => d.IsActive == isActive).ToListAsync();
+            var rolesWithDepartments = await _dbContext.roles
+                .Where(r => r.IsActive == isActive)
+                .Join(_dbContext.departments,
+                    role => role.DepartmentId,
+                    department => department.DepartmentId,
+                    (role, department) => new GetRoleDTO
+                    {
+                        RoleId = role.RoleId,
+                        RoleName = role.RoleName,
+                        DepartmentName = department.DepartmentName,
+                        CreatedBy = role.CreatedBy,
+                        CreatedDate = role.CreatedDate
+                    })
+                .ToListAsync();
+
+            return rolesWithDepartments;
         }
+
 
         //Counts
 
@@ -222,9 +247,24 @@ namespace EHD.BAL.Implementations
         }
 
         //issues
-        public async Task<IEnumerable<Issue>> GetAllIssueTypes(bool isActive)
+        public async Task<IEnumerable<GetAllIssueTypesDTO>> GetAllIssueTypes(bool isActive)
         {
-            return await _dbContext.issues.Where(d => d.IsActive == isActive).ToListAsync();
+            var issuesWithDepartments = await _dbContext.issues
+                .Where(i => i.IsActive == isActive)
+                .Join(_dbContext.departments,
+                    issue => issue.DepartmentId,
+                    department => department.DepartmentId,
+                    (issue, department) => new GetAllIssueTypesDTO
+                    {
+                        IssueId = issue.IssueId,
+                        IssueName = issue.IssueName,
+                        DepartmentName = department.DepartmentName,
+                        CreatedBy = issue.CreatedBy,
+                        CreatedDate = issue.CreatedDate
+                    })
+                .ToListAsync();
+
+            return issuesWithDepartments;
         }
 
 

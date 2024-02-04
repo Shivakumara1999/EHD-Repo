@@ -9,10 +9,10 @@ namespace EHD.BAL.Domain_Models
     public class DepartmentDTO
     { 
       public class AddDepartment
-      { 
-        public string DepartmentId { get; set; }
+      {
 
-        public string DepartmentName { get; set; }
+            public string? DepartmentId { get; set; }
+            public string DepartmentName { get; set; }
 
         public string? CreatedBy { get; set; }
 
