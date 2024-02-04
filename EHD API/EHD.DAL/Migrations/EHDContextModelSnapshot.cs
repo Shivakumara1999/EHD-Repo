@@ -324,7 +324,7 @@ namespace EHD.DAL.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("IssueId")
+                    b.Property<int?>("IssueId")
                         .HasColumnType("int");
 
                     b.Property<string>("ModifiedBy")
@@ -403,9 +403,7 @@ namespace EHD.DAL.Migrations
 
                     b.HasOne("EHD.DAL.Models.Issue", "Issue")
                         .WithMany()
-                        .HasForeignKey("IssueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IssueId");
 
                     b.HasOne("EHD.DAL.Models.Priority", "Priority")
                         .WithMany()

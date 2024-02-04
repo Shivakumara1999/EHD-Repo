@@ -20,12 +20,12 @@ namespace EHD.DAL.Models
 
         [ForeignKey("EmployeeId")]
         public string EmployeeId { get; set; }
-
         [ForeignKey("DepartmentId")]
+
         public string DepartmentId { get; set; }
 
         [ForeignKey("IssueId")]
-        public int IssueId { get; set; }
+        public int? IssueId { get; set; }
 
         [ForeignKey("PriorityId")]
         public int PriorityId { get; set; }
