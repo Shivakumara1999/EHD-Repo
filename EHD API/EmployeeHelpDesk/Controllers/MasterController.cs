@@ -3,6 +3,7 @@ using EHD.BAL.Interface;
 using EHD.DAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using static EHD.BAL.Domain_Models.DepartmentDTO;
 using static EHD.BAL.Domain_Models.RoleDTO;
 
@@ -158,6 +159,20 @@ namespace EHD.API.Controllers
             await _master.AddIssueTypes(issues);
             return Ok("Issue types added successfully.");
         }
+
+        [HttpPut("UpdateIssueType")]
+        public async Task<IActionResult> UpdateIssueTypes(IssuesDTO issue)
+        {
+            await _master.UpdateIssueTypes(issue);
+            return Ok("Issue type updated successfully.");
+        }
+
+        [HttpGet]
+        public async Task<IQueryable> GetAllDepartmentName()
+        { 
+           return await _master.GetAllDepartmentName();
+        }
+
         [HttpPut]
         public void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active)
         {
@@ -170,6 +185,12 @@ namespace EHD.API.Controllers
         public void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
         {
             _master.EditRolesIsActive(RolesEditByActive, Is_Active);
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<DepartmentIdNameDto>> GetAllDepartmentsByRoles( )
+        {
+           return await  _master.GetAllDepartmentsByRoles();
         }
     }
 }

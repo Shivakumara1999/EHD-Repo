@@ -41,7 +41,7 @@ namespace EHD.BAL.Implementations
         }
 
 
-      public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllActiveTickets(string departmentId)
+        public async Task<IQueryable<GetTicketByDepartmentDTO>> GetAllActiveTickets(string departmentId)
         {
             var data = await _dbContext.tickets
                 .Include(e => e.Employee)
@@ -237,10 +237,11 @@ namespace EHD.BAL.Implementations
                 {
                     TicketId = t.TicketId,
                     EmployeeId = t.EmployeeId,
-                    UserName=t.Employee.FirstName + " " + t.Employee.LastName,
+                    UserName = t.Employee.FirstName + " " + t.Employee.LastName,
                     TicketDescription = t.TicketDescription,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
+                    PriorityId = t.PriorityId,
                     Priority = t.Priority.PriorityName,
                     Status = t.Status.StatusName,
                     ReRaiseStatus = t.ReRaiseStatus,
@@ -248,7 +249,7 @@ namespace EHD.BAL.Implementations
                     TicketDate = t.RejectedDate,
                     StatusMessage = t.RejectedReason,
                     AssigneeId = t.AssigneeId,
-                    Assignee=t.Assignee,
+                    Assignee = t.Assignee,
                 }).ToListAsync();
 
             return data.AsQueryable();
@@ -272,6 +273,7 @@ namespace EHD.BAL.Implementations
                     EmployeeId = t.EmployeeId,
                     Department = t.Department.DepartmentName,
                     Issue = t.Issue.IssueName,
+                    PriorityId = t.PriorityId,
                     Priority = t.Priority.PriorityName,
                     Status = t.Status.StatusName,
                     ReRaiseStatus = t.ReRaiseStatus,
@@ -279,8 +281,8 @@ namespace EHD.BAL.Implementations
                     TicketDate = t.RejectedDate,
                     StatusMessage = t.ReRaiseReason,
                     ReRaiseCount = t.ReRaiseCount,
-                    AssigneeId= t.AssigneeId,
-                    Assignee=t.Assignee,
+                    AssigneeId = t.AssigneeId,
+                    Assignee = t.Assignee,
                 }).ToListAsync();
 
             return data.AsQueryable();
@@ -319,10 +321,11 @@ namespace EHD.BAL.Implementations
         {
             var query = from issue in _dbContext.issues
                         where issue.DepartmentId == departmentId
-                        group issue by new { issue.DepartmentId, issue.IssueName , issue.IssueId} into grouped
+                        group issue by new { issue.DepartmentId, issue.IssueName, issue.IssueId } into grouped
                         orderby grouped.Key.DepartmentId
                         select new
-                        { issueid = grouped.Key.IssueId,
+                        {
+                            issueid = grouped.Key.IssueId,
                             DepartmentId = grouped.Key.DepartmentId,
                             IssueName = grouped.Key.IssueName,
                         };
@@ -427,5 +430,23 @@ namespace EHD.BAL.Implementations
             return newTicket;
         }
 
+        public async Task UpdateAdminReRaiseStatus(AdminReRaiseTicketDTO data)
+        {
+            var ticket = await _dbContext.tickets.FirstOrDefaultAsync(t => t.TicketId == data.TicketId);
+
+            if (ticket != null)
+            {
+                ticket.ModifiedBy = data.ModifiedBy;
+                ticket.ModifiedDate = DateTime.Now;
+                ticket.ReRaiseReason = data.ReRaiseReason;
+                ticket.StatusId = null;
+                ticket.DueDate = ticket.DueDate.AddDays(1);
+                ticket.ReRaiseStatus = true;
+                ticket.ReRaiseCount = data.ReRaiseCount;
+                _dbContext.tickets.Update(ticket);
+                await _dbContext.SaveChangesAsync();
+            }
+
+        }
     }
 }

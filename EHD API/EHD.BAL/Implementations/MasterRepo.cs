@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using static EHD.BAL.Domain_Models.DepartmentDTO;
 using static EHD.BAL.Domain_Models.RoleDTO;
 using static EHD.BAL.Exceptions.AllExceptions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace EHD.BAL.Implementations
 {
@@ -100,6 +101,23 @@ namespace EHD.BAL.Implementations
         {
             return await _dbContext.departments.Where(d => d.IsActive == isActive).ToListAsync();
         }
+
+
+        public async Task<IEnumerable<DepartmentIdNameDto>> GetAllDepartmentsByRoles()
+        {
+            var query = from d in _dbContext.departments
+                        join r in _dbContext.roles on d.DepartmentId equals r.DepartmentId
+                        join e in _dbContext.employees on r.RoleId equals e.RoleId
+                        select new DepartmentIdNameDto
+                        {
+                            DepartmentId = d.DepartmentId,
+                            DepartmentName = d.DepartmentName
+                        };
+
+            return await query.ToListAsync();
+        }
+
+
 
 
         //Roles
@@ -347,6 +365,32 @@ namespace EHD.BAL.Implementations
 
                 await _dbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task UpdateIssueTypes(IssuesDTO issueDto)
+        {
+            var existingIssue = await _dbContext.issues.FirstOrDefaultAsync(i => i.IssueId == issueDto.IssueId);
+            if (existingIssue != null)
+            {
+                existingIssue.IssueName = issueDto.IssueName;
+                existingIssue.DepartmentId = issueDto.DepartmentId;
+                existingIssue.ModifiedDate = DateTime.Now;
+                existingIssue.IsActive = true;
+                existingIssue.ModifiedBy = issueDto.EmployeeId;
+
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task<IQueryable> GetAllDepartmentName()
+        {
+            var query = from department in _dbContext.departments
+                        select new
+                        {
+                            departmentId = department.DepartmentId,
+                            departmentname = department.DepartmentName
+                        };
+                        return query;
         }
 
         public void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active)

@@ -8,8 +8,10 @@ namespace EHD.BAL.Domain_Models
 {
     public class IssuesDTO
     {
+
         public string DepartmentId { get; set; }
 
+        public int IssueId { get; set; }
         public string IssueName { get; set; }
         public string EmployeeId { get; set; }
     }

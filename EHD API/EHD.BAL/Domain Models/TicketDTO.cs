@@ -52,6 +52,7 @@ namespace EHD.BAL.Domain_Models
         public string TicketDescription { get; set; }
         public string Department { get; set; }
         public string Issue { get; set; }
+        public int? PriorityId { get; set; }
         public string Priority { get; set; }
         public string Status { get; set; }
         public bool ReRaiseStatus { get; set; }
@@ -78,6 +79,14 @@ namespace EHD.BAL.Domain_Models
         public string? AssigneeId { get; set; }
         public string? Reason { get; set; }
         //public string EmployeeId { get; set; }
+    }
+    public class AdminReRaiseTicketDTO
+    {
+        public string TicketId { get; set; }
+        public string ModifiedBy { get; set; }
+        public string? ReRaiseReason { get; set; }
+        public int ReRaiseCount { get; set; }
+
     }
 
 }

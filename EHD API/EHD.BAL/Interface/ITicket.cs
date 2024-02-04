@@ -25,5 +25,7 @@ namespace EHD.BAL.Interface
 
         Task<bool> UpdateTicketAsync(string ticketId, Re_raisedDTO reRaisedDto);
         Task<List<getTicketsByEmpIdDTO>> GetTicketDetailsAsync(string? Empid);
+
+        Task UpdateAdminReRaiseStatus(AdminReRaiseTicketDTO data);
     }
 }

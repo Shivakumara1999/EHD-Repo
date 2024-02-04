@@ -55,10 +55,15 @@ namespace EHD.BAL.Interface
 
         Task AddIssueTypes(List<IssuesDTO> issues);
 
+        Task UpdateIssueTypes(IssuesDTO issue);
+        Task<IQueryable> GetAllDepartmentName();
+
 
         void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active);
 
         void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active);
+
+        Task<IEnumerable<DepartmentIdNameDto>> GetAllDepartmentsByRoles();
 
     }
 }

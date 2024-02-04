@@ -12,7 +12,7 @@ namespace EHD.API.Controllers
     {
         private readonly ITicket _ticket;
 
-        public TicketController(ITicket ticket) 
+        public TicketController(ITicket ticket)
         {
             _ticket = ticket;
         }
@@ -125,6 +125,12 @@ namespace EHD.API.Controllers
         public async Task<List<getTicketsByEmpIdDTO>> GetTicketDetailsAsync(string? id)
         {
             return await _ticket.GetTicketDetailsAsync(id);
+        }
+
+        [HttpPut]
+        public async Task UpdateAdminReRaiseStatus(AdminReRaiseTicketDTO data)
+        {
+            await _ticket.UpdateAdminReRaiseStatus(data);
         }
     }
 }
