@@ -122,9 +122,9 @@ namespace EHD.API.Controllers
 
         [HttpGet]
 
-        public async Task<List<getTicketsByEmpIdDTO>> GetTicketDetailsAsync(string? id)
+        public async Task<List<getTicketsByEmpIdDTO>> GetTicketDetails(string? id)
         {
-            return await _ticket.GetTicketDetailsAsync(id);
+            return await _ticket.GetTicketDetails(id);
         }
 
         [HttpPut]

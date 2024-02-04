@@ -360,7 +360,7 @@ namespace EHD.BAL.Implementations
             }
             return false;
         }
-        public async Task<List<getTicketsByEmpIdDTO>> GetTicketDetailsAsync(string? Empid)
+        public async Task<List<getTicketsByEmpIdDTO>> GetTicketDetails(string? Empid)
         {
             var ticketDetails = await _dbContext.tickets
                 .Include(e => e.Employee)
@@ -381,7 +381,7 @@ namespace EHD.BAL.Implementations
                     StatusName = t.Status.StatusName,
                     FeedbackType = t.Feedback.FeedbackType,
                     Assignee = t.Assignee,
-                    AssigneeId=t.AssigneeId
+
                 })
                 .ToListAsync();
 
@@ -406,7 +406,7 @@ namespace EHD.BAL.Implementations
                 DepartmentId = ticketModel.DepartmentId,
                 IssueId = ticketModel.IssueId,
                 PriorityId = ticketModel.PriorityId,
-                CreatedDate = DateTime.UtcNow,
+                CreatedDate = DateTime.Now,
                 CreatedBy = ticketModel.CreatedBy,
                 IsActive = ticketModel.IsActive,
                 ReRaiseStatus = false,
