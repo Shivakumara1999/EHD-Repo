@@ -64,5 +64,11 @@ namespace EHD.API.Controllers
         {
             return await _user.GetAssigneeDetails(ticketId);
         }
+
+        [HttpGet]
+        public async Task<string> GetUserProfile(string mail_id)
+        {
+            return await _user.GetUserProfile(mail_id);
+        }
     }
 }

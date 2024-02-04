@@ -2,6 +2,7 @@
 using EHD.BAL.Interface;
 using EHD.DAL.DataContext;
 using EHD.DAL.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -161,6 +162,18 @@ namespace EHD.BAL.Implementations
             return Assignee;
         }
 
+        public async Task<string> GetUserProfile(string mail_id)
+        {
+            var UserData = await (from e in this._dbContext.employees
+                                  where e.OfficialMailId == mail_id
+                                  select new
+                                  {
+                                      EmployeeName = e.Gender == "M" ? "Mr." + e.FirstName + " " + e.LastName : "Miss." + e.FirstName + " " + e.LastName,
+                                   
+                                  }).FirstOrDefaultAsync();
+
+            return UserData.EmployeeName;
+        }
 
     }
 }
