@@ -442,7 +442,7 @@ namespace EHD.BAL.Implementations
                 ticket.StatusId = null;
                 ticket.DueDate = ticket.DueDate.AddDays(1);
                 ticket.ReRaiseStatus = true;
-                ticket.ReRaiseCount = data.ReRaiseCount;
+                ticket.ReRaiseCount = null;
                 _dbContext.tickets.Update(ticket);
                 await _dbContext.SaveChangesAsync();
             }

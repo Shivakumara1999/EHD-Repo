@@ -63,7 +63,7 @@ namespace EHD.BAL.Interface
 
         void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active);
 
-        Task<IEnumerable<DepartmentIdNameDto>> GetAllDepartmentsByRoles();
+        Task<IEnumerable<DepartmentIdNameDto>> GetDepartmentByRoleId(string roleId);
 
     }
 }

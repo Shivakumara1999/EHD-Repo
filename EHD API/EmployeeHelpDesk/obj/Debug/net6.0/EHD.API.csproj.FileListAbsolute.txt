@@ -950,3 +950,4 @@ E:\Hackthon\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\refint\EHD.API.dl
 E:\Hackthon\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\EHD.API.pdb
 E:\Hackthon\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\EHD.API.genruntimeconfig.cache
 E:\Hackthon\EHD-Repo\EHD API\EmployeeHelpDesk\obj\Debug\net6.0\ref\EHD.API.dll
+C:\Users\Thanushree S\Documents\My GIT\Joy Help Desk\EHD-Repo\EHD API\EmployeeHelpDesk\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -4,11 +4,12 @@
     "\\EHD.BAL",
     "\\EHD.BAL\\Implementations",
     "\\EHD.DAL",
+    "\\EHD.DAL\\Migrations",
     "\\EHD.DAL\\Models",
     "\\EmployeeHelpDesk",
     "\\EmployeeHelpDesk\\Controllers",
     "\\EmployeeHelpDesk\\obj"
   ],
-  "SelectedNode": "\\EmployeeHelpDesk\\Controllers\\MasterController.cs",
+  "SelectedNode": "\\EHD.DAL\\Migrations\\20240204090949_ehd7.cs",
   "PreviewInSolutionExplorer": false
 }

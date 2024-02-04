@@ -103,11 +103,12 @@ namespace EHD.BAL.Implementations
         }
 
 
-        public async Task<IEnumerable<DepartmentIdNameDto>> GetAllDepartmentsByRoles()
+        public async Task<IEnumerable<DepartmentIdNameDto>> GetDepartmentByRoleId(string roleId)
         {
             var query = from d in _dbContext.departments
                         join r in _dbContext.roles on d.DepartmentId equals r.DepartmentId
                         join e in _dbContext.employees on r.RoleId equals e.RoleId
+                        where r.RoleId == roleId
                         select new DepartmentIdNameDto
                         {
                             DepartmentId = d.DepartmentId,

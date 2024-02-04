@@ -188,9 +188,9 @@ namespace EHD.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<DepartmentIdNameDto>> GetAllDepartmentsByRoles( )
+        public async Task<IEnumerable<DepartmentIdNameDto>> GetAllDepartmentsByRoles(string roleId)
         {
-           return await  _master.GetAllDepartmentsByRoles();
+           return await  _master.GetDepartmentByRoleId( roleId);
         }
     }
 }

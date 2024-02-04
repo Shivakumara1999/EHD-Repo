@@ -85,8 +85,6 @@ namespace EHD.BAL.Domain_Models
         public string TicketId { get; set; }
         public string ModifiedBy { get; set; }
         public string? ReRaiseReason { get; set; }
-        public int ReRaiseCount { get; set; }
-
     }
 
 }

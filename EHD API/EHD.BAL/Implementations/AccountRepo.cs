@@ -1,6 +1,7 @@
 ﻿using EHD.BAL.Domain_Models;
 using EHD.BAL.Interface;
 using EHD.DAL.DataContext;
+using EHD.DAL.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -31,6 +32,17 @@ namespace EHD.BAL.Implementations
         public string Login(LoginDTO model)
         {
             var user = _dbContext.employees.FirstOrDefault(i => i.OfficialMailId == model.OfficialMailId);
+            var query = (from d in _dbContext.departments
+                         join r in _dbContext.roles on d.DepartmentId equals r.DepartmentId
+                         join e in _dbContext.employees on r.RoleId equals e.RoleId
+                         where r.RoleId == user.RoleId
+                         select new DepartmentIdNameDto
+                         {
+                             DepartmentId = d.DepartmentId,
+                             DepartmentName = d.DepartmentName
+                         }).FirstOrDefault();
+
+
             if (user == null)
             {
                 throw new UserNotFound();
@@ -45,13 +57,14 @@ namespace EHD.BAL.Implementations
             else
             {
                 List<Claim> claims = new()
-             {
+                {
                     new Claim(ClaimTypes.Email, model.OfficialMailId),
                     new Claim("OfficialMailId", user.OfficialMailId),
                     new Claim("RoleId", user.RoleId),
-                   
+                    new Claim("DepartmentId", query.DepartmentId),
+                    new Claim("DepartmentName", query.DepartmentName),
                     new Claim("EmployeeId",user.EmployeeId)
-             };
+                };
                 var tokenKey = _configuration.GetSection("azure:secretkey").Value!;
                 var keyBytes = Encoding.UTF8.GetBytes(tokenKey);
                 var sha512 = SHA512.Create();
