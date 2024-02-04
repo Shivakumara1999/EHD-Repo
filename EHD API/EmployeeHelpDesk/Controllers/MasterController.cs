@@ -72,6 +72,12 @@ namespace EHD.API.Controllers
             return roles;
         }
 
+        [HttpGet]
+        public async Task<IQueryable> GetAllRoleNames()
+        {
+            return await _master.GetAllRoleNames();
+        }
+
         //Counts
 
         [HttpGet]

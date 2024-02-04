@@ -29,6 +29,7 @@ namespace EHD.BAL.Interface
 
 
         Task<IEnumerable<GetRoleDTO>> GetAllRoles(bool isActive);
+        Task<IQueryable> GetAllRoleNames();
 
 
 

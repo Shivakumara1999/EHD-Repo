@@ -66,7 +66,7 @@ namespace EHD.API.Controllers
         }
 
         [HttpGet]
-        public async Task<string> GetUserProfile(string mail_id)
+        public async Task<object> GetUserProfile(string mail_id)
         {
             return await _user.GetUserProfile(mail_id);
         }

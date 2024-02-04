@@ -162,18 +162,18 @@ namespace EHD.BAL.Implementations
             return Assignee;
         }
 
-        public async Task<string> GetUserProfile(string mail_id)
+        public async Task<object> GetUserProfile(string mail_id)
         {
-            var UserData = await (from e in this._dbContext.employees
+            var userData = await (from e in this._dbContext.employees
                                   where e.OfficialMailId == mail_id
                                   select new
                                   {
                                       EmployeeName = e.Gender == "M" ? "Mr." + e.FirstName + " " + e.LastName : "Miss." + e.FirstName + " " + e.LastName,
-                                   
                                   }).FirstOrDefaultAsync();
 
-            return UserData.EmployeeName;
+            return new { EmployeeName = userData.EmployeeName };
         }
+
 
     }
 }

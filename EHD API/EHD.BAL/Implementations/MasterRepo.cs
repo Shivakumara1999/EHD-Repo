@@ -185,6 +185,16 @@ namespace EHD.BAL.Implementations
 
             await _dbContext.SaveChangesAsync();
         }
+        public async Task<IQueryable> GetAllRoleNames()
+        {
+            var query = from role in _dbContext.roles
+                        select new
+                        {
+                            RoleId = role.RoleId,
+                            RoleName = role.RoleName
+                        };
+            return query;
+        }
 
 
         public async Task<IEnumerable<GetRoleDTO>> GetAllRoles(bool isActive)

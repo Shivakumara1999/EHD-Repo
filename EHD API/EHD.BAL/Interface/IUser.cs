@@ -20,6 +20,6 @@ namespace EHD.BAL.Interface
         Task UpdateEmployeeIsActive(IsActiveModel EmployeeEditByActive, bool Is_Active);
         Task UpdateEmployeeRole(string employeeId, EmployeeRoleDTO emprole);
         Task<string> GetAssigneeDetails(string ticketId);
-        Task<string> GetUserProfile(string mail_id);
+        Task<object> GetUserProfile(string mail_id);
     }
 }
