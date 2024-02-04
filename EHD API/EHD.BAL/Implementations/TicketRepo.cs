@@ -381,6 +381,7 @@ namespace EHD.BAL.Implementations
                     StatusName = t.Status.StatusName,
                     FeedbackType = t.Feedback.FeedbackType,
                     Assignee = t.Assignee,
+                    AssigneeId=t.AssigneeId
 
                 })
                 .ToListAsync();
