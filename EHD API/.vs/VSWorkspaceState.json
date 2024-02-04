@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\EHD.BAL",
+    "\\EHD.BAL\\Domain Models",
     "\\EHD.BAL\\Implementations",
     "\\EHD.DAL",
     "\\EHD.DAL\\Migrations",
@@ -10,6 +11,6 @@
     "\\EmployeeHelpDesk\\Controllers",
     "\\EmployeeHelpDesk\\obj"
   ],
-  "SelectedNode": "\\EHD.BAL\\Implementations\\TicketRepo.cs",
+  "SelectedNode": "\\EHD.BAL\\Domain Models\\TicketDTO.cs",
   "PreviewInSolutionExplorer": false
 }

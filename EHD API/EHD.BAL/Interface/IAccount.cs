@@ -10,7 +10,7 @@ namespace EHD.BAL.Interface
     public interface IAccount
     {
         string Login(LoginDTO model);
-        void OtpGeneration(string email);
+         Task OtpGeneration(string email);
         void ForgotPassword(ForgotPasswordDTO forgot);
         void ChangePassword(ChangePasswordDTO change);
     }

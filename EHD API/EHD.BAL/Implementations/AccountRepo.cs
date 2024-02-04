@@ -86,10 +86,11 @@ namespace EHD.BAL.Implementations
 
             }
         }
-        public void OtpGeneration(string email)
+
+        public async Task OtpGeneration(string email)
         {
 
-            var emailCheck = _dbContext.employees.FirstOrDefault(e => e.OfficialMailId == email);
+            var emailCheck =  _dbContext.employees.FirstOrDefault(e => e.OfficialMailId.Equals(email));
             Random random = new Random();
             int otp = (random.Next(1000, 9999));
 
@@ -100,7 +101,7 @@ namespace EHD.BAL.Implementations
             if (emailCheck.OfficialMailId != null)
             {
                 emailCheck.Otp = otp;
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
 
                 var otpData = new MailTemplateDTO
                 {
@@ -110,9 +111,14 @@ namespace EHD.BAL.Implementations
                     MailBody = "This is the Otp to reset your password",
                     MailFooter = "From Joy Help Desk team! "
                 };
-                _mail.SendMail(otpData);
+                await _mail.SendMail(otpData);
             }
+
+            await Task.Delay(TimeSpan.FromMinutes(1));
+            emailCheck.Otp = null;
+            await _dbContext.SaveChangesAsync();    
         }
+
         public void ForgotPassword(ForgotPasswordDTO forgot)
         {
             var data = _dbContext.employees.FirstOrDefault(i => i.Otp == forgot.Otp && i.OfficialMailId == forgot.OfficialMailId);
