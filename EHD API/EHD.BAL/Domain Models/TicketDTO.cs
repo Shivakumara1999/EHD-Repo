@@ -11,7 +11,7 @@ namespace EHD.BAL.Domain_Models
         public string? TicketDescription { get; set; }
         public string EmployeeId { get; set; }
         public string DepartmentId { get; set; }
-        public int IssueId { get; set; }
+        public int? IssueId { get; set; }
         public int PriorityId { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime CreatedDate { get; set; }
