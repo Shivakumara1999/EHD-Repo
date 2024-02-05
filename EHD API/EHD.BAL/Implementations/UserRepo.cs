@@ -74,7 +74,7 @@ namespace EHD.BAL.Implementations
                     ToAddress = employee.OfficialMailId,
                     Subject = "HelpDesk Login Credentials",
                     MailHeader = autopassw,
-                    MailBody = "Here is the password to access your HelpDesk. Please keep it confidential, and remember that you have the option to change it at any time.",
+                    MailBody = $"Dear, {employee.FirstName + " " + employee.LastName}, <br><br/> Here is the password to access your HelpDesk. Please keep it confidential, and remember that you have the option to change it at any time. <br></br> Please find the below link to raise ticket from Joy Help desk. <br></br> <a>http://localhost:3000/</a>",
                     MailFooter = "From Joy Help Desk team! "
                 };
                 _mail.SendMail(newUser);

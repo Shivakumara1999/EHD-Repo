@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,18 +15,33 @@ namespace EHD.BAL.Implementations
     public class TicketRepo : ITicket
     {
         private readonly EHDContext _dbContext;
+        private readonly IMailTemplate _mail;
 
-        public TicketRepo(EHDContext dbContext)
+        public TicketRepo(EHDContext dbContext, IMailTemplate mail)
         {
             _dbContext = dbContext;
+            _mail = mail;
         }
 
         public async Task CreateTicket(CreateTicketDTO ticketModel)
         {
+            var employee = await _dbContext.employees.FirstOrDefaultAsync(e => e.EmployeeId == ticketModel.EmployeeId);
 
             Ticket newTicket = GenerateTicket(ticketModel);
             _dbContext.tickets.Add(newTicket);
             await _dbContext.SaveChangesAsync();
+
+            var mailData = new MailTemplateDTO
+            {
+                ToAddress = employee.OfficialMailId,
+                Subject = "Ticket has been raised",
+                MailHeader = $"Ticket has been raised to respective department",
+                MailBody = $"Dear, {employee.FirstName + " " + employee.LastName},<br></br> We would like to inform you that your ticket has been raised successfully to the respective department with ticketid #{newTicket.TicketId}.",
+                MailFooter = "From Joy Help Desk team! "
+            };
+
+            await _mail.SendMail(mailData);
+
         }
         public async Task<bool> UpadteFeedback(string ticketId, FeedbackDTO feedback)
         {
@@ -160,9 +176,26 @@ namespace EHD.BAL.Implementations
             var ticket = await _dbContext.tickets.FirstOrDefaultAsync(t => t.TicketId == data.TicketId);
             if (ticket != null)
             {
-                ticket.DepartmentId = data.DepartmentId;
-                _dbContext.tickets.Update(ticket);
-                await _dbContext.SaveChangesAsync();
+                var employee = await _dbContext.employees.FirstOrDefaultAsync(e => e.EmployeeId == ticket.EmployeeId);
+                if (employee != null) {
+
+                    var mailData = new MailTemplateDTO
+                    {
+                        ToAddress = employee.OfficialMailId,
+                        Subject = "Regarding ticket raising to respective department",
+                        MailHeader = "Ticket has been raised to respective department",
+                        MailBody = $"Dear, {employee.FirstName + " " + employee.LastName},<br></br> We would like to inform you that we have moved your ticket with ticket id #{ticket.TicketId} to the relevent department, since you had raised to irrelevent department.",
+                        MailFooter = "From Joy Help Desk team! "
+                    };
+
+
+                    ticket.DepartmentId = data.DepartmentId;
+                    _dbContext.tickets.Update(ticket);
+                    await _dbContext.SaveChangesAsync();
+
+                    _mail.SendMail(mailData);
+                }
+
             }
         }
 

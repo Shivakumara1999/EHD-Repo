@@ -16,9 +16,9 @@ namespace EHD.BAL.Templates
         {
             string fromAddress = "thanushree.u@joyitsolutions.co";
             string password = "Joyit@321";
-            string mailHeader = $"<html><body><h1>{data.MailHeader}<h1></body></html>";
-            string mailBody = $"<html><body><h3>{data.MailBody}<h3/></body></html>";
-            string mailFooter = $"<html><body><h1>{data.MailFooter}</h1></body></html>";
+            string mailHeader = $"<html><body><h4>{data.MailHeader}</h4></body></html>";
+            string mailBody = $"<html><body><p>{data.MailBody}</p></body></html>";
+            string mailFooter = $"<html><body><h5>{data.MailFooter}</h5></body></html>";
             string mailContent = mailHeader + mailBody + mailFooter;
 
             using (var message = new MailMessage())

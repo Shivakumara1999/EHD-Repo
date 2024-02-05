@@ -108,7 +108,7 @@ namespace EHD.BAL.Implementations
                     ToAddress = emailCheck.OfficialMailId,
                     Subject = "HelpDesk Password Reset OTP",
                     MailHeader = emailCheck.Otp.ToString(),
-                    MailBody = "This is the Otp to reset your password",
+                    MailBody = $"Dear, {emailCheck.FirstName + " " + emailCheck.LastName}, <br></br> This is the Otp to reset your password",
                     MailFooter = "From Joy Help Desk team! "
                 };
                 await _mail.SendMail(otpData);
