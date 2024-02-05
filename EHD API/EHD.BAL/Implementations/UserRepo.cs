@@ -106,19 +106,32 @@ namespace EHD.BAL.Implementations
             return await _dbContext.employees.FindAsync(employeeId);
         }
 
-        public async Task<IQueryable<Employee>> GetAllEmployeesIsActive(bool? status)
+        public async Task<IEnumerable<EmployeeRolenameDTO>> GetAllEmployeesIsActive(bool? status)
         {
-            IQueryable<Employee> query = _dbContext.employees;
+            var employeeWithRoles = await _dbContext.employees
+                .Where(e => e.IsActive == status)
+                .Join(_dbContext.roles,
+                    emp => emp.RoleId,
+                    role => role.RoleId,
+                    (emp, role) => new EmployeeRolenameDTO
+                    {
+                        EmployeeId = emp.EmployeeId,
+                        FirstName = emp.FirstName,
+                        LastName = emp.LastName,
+                        Gender = emp.Gender,
+                        OfficialMailId = emp.OfficialMailId,
+                        AlternateMailId = emp.AlternateMailId,
+                        ContactNumber = emp.ContactNumber,
+                        Location = emp.Location,
+                        Salary = emp.Salary,
+                        IsActive = emp.IsActive,
+                        JoiningDate = emp.JoiningDate,
+                        RoleId = emp.RoleId,
+                        RoleName = role.RoleName,
+                    })
+                .ToListAsync();
 
-            if (status.HasValue)
-            {
-                query = status.Value
-                    ? query.Where(e => e.IsActive)
-                    : query.Where(e => !e.IsActive);
-            }
-
-            List<Employee> employees = await query.ToListAsync();
-            return employees.AsQueryable();
+            return employeeWithRoles;
         }
 
         public async Task UpdateEmployeeIsActive(IsActiveModel EmployeeEditByActive, bool Is_Active)
@@ -178,12 +191,12 @@ namespace EHD.BAL.Implementations
                                   where e.OfficialMailId == mail_id
                                   select new
                                   {
-                                      EmployeeName = e.Gender == "M" ? "Mr." + e.FirstName + " " + e.LastName : "Miss." + e.FirstName + " " + e.LastName,
+                                      EmployeeName = e.Gender == "M" ? "Mr." + e.FirstName + " " + e.LastName : "Ms." + e.FirstName + " " + e.LastName,
                                   }).FirstOrDefaultAsync();
 
             return new { EmployeeName = userData.EmployeeName };
         }
-
+       
 
     }
 }

@@ -41,10 +41,10 @@ namespace EHD.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Employee>> GetAllEmployeesIsActive(bool? status)
+        public async Task<IEnumerable<EmployeeRolenameDTO>> GetAllEmployeesIsActive(bool? status)
         {
-            var employees = await _user.GetAllEmployeesIsActive(status);
-            return employees;
+            var emp = await _user.GetAllEmployeesIsActive(status);
+            return emp;
         }
 
 
