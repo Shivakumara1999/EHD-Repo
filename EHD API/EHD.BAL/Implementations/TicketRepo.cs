@@ -152,6 +152,8 @@ namespace EHD.BAL.Implementations
             if (ticket != null)
             {
                 ticket.StatusId = ticketStatus.StatusId;
+                ticket.ModifiedBy = ticketStatus.AssigneeId;
+                ticket.ModifiedDate = DateTime.Now;
                 switch (ticketStatus.StatusId)
                 {
                     case 1:
@@ -190,6 +192,8 @@ namespace EHD.BAL.Implementations
 
 
                     ticket.DepartmentId = data.DepartmentId;
+                    ticket.ModifiedBy = data.EmplyoeeId;
+                    ticket.ModifiedDate = DateTime.Now;
                     _dbContext.tickets.Update(ticket);
                     await _dbContext.SaveChangesAsync();
 
@@ -384,6 +388,7 @@ namespace EHD.BAL.Implementations
             if (ticket.StatusId == 3 || ticket.StatusId == 2)
             {
                 ticket.ReRaiseReason = reRaisedDto.ReRaiseReason;
+                ticket.ModifiedBy = ticket.EmployeeId;
                 if (ticket.ReRaiseCount == null)
                 {
                     ticket.ReRaiseCount = 1;
@@ -421,8 +426,21 @@ namespace EHD.BAL.Implementations
                     StatusName = t.Status.StatusName,
                     FeedbackType = t.Feedback.FeedbackType,
                     Assignee = t.Assignee,
-                    AssigneeId=t.AssigneeId
-
+                    AssigneeId = t.AssigneeId,
+                    FeedbackId = t.FeedbackId,
+                    StatusId = t.StatusId,
+                    PriorityId = t.PriorityId,
+                    IssueId = t.IssueId,
+                    DepartmentId = t.DepartmentId,
+                    EmployeeId = t.EmployeeId,
+                    RejectedDate = t.RejectedDate,
+                    ReRaiseDate = t.ReRaiseDate,
+                    ResolvedReason = t.ResolvedReason,
+                    RejectedReason = t.RejectedReason,
+                    ReRaiseReason = t.ReRaiseReason,
+                    ReRaiseCount = t.ReRaiseCount,
+                    ReRaiseStatus = t.ReRaiseStatus,
+                    FeedbackDescription = t.FeedbackDescription,
                 })
                 .ToListAsync();
 

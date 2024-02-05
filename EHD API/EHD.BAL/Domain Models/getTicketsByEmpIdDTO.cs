@@ -19,7 +19,20 @@ namespace EHD.BAL.Domain_Models
         public string AssigneeId { get; set; }
         public DateTime DueDate { get; set; }
         public DateTime CreatedDate { get; set; }
-
-
+        public string EmployeeId { get; set; }
+        public string DepartmentId { get; set; }
+        public int? IssueId { get; set; }
+        public int PriorityId { get; set; }
+        public int? StatusId { get; set; }
+        public int? FeedbackId { get; set; }
+        public string? FeedbackDescription { get; set; }
+        public bool ReRaiseStatus { get; set; }
+        public int? ReRaiseCount { get; set; }
+        public string? ReRaiseReason { get; set; }
+        public string? RejectedReason { get; set; }
+        public string? ResolvedReason { get; set; }
+        public DateTime? ReRaiseDate { get; set; }
+        public DateTime? RejectedDate { get; set; }
     }
+    
 }

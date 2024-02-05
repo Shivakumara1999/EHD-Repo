@@ -70,6 +70,7 @@ namespace EHD.BAL.Domain_Models
     {
         public string TicketId { get; set; }
         public string DepartmentId { get; set; }
+        public string EmplyoeeId { get; set;}
     }
 
     public class UpdateTicketStatusDTO
@@ -78,7 +79,6 @@ namespace EHD.BAL.Domain_Models
         public int? StatusId { get; set; }
         public string? AssigneeId { get; set; }
         public string? Reason { get; set; }
-        //public string EmployeeId { get; set; }
     }
     public class AdminReRaiseTicketDTO
     {

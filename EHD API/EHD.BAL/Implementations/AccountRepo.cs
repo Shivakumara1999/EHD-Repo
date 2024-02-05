@@ -32,6 +32,11 @@ namespace EHD.BAL.Implementations
         public string Login(LoginDTO model)
         {
             var user = _dbContext.employees.FirstOrDefault(i => i.OfficialMailId == model.OfficialMailId);
+
+            if (user == null)
+            {
+                throw new UserNotFound();
+            }
             var query = (from d in _dbContext.departments
                          join r in _dbContext.roles on d.DepartmentId equals r.DepartmentId
                          join e in _dbContext.employees on r.RoleId equals e.RoleId
@@ -41,10 +46,6 @@ namespace EHD.BAL.Implementations
                              DepartmentId = d.DepartmentId,
                              DepartmentName = d.DepartmentName
                          }).ToList();
-            if (user == null)
-            {
-                throw new UserNotFound();
-            }
             var hashedPasswordFromDB = user.Password;
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(model.Password, hashedPasswordFromDB);
 
