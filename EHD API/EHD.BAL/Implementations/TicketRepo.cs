@@ -299,7 +299,8 @@ namespace EHD.BAL.Implementations
                 .Where(t => t.IsActive == true && t.DepartmentId == departmentId)
                 .ToList();
 
-            var totalTicketsCount = tickets.Count();
+           // var totalTicketsCount = tickets.Count();
+          
             var activeTicketsCount = tickets.Count(t => t.StatusId == null || t.StatusId == 1);
             var overDueTicketsCount = tickets.Count(t => (t.StatusId == null || t.StatusId == 1)
                 && DateTime.Now > t.DueDate
@@ -307,6 +308,7 @@ namespace EHD.BAL.Implementations
             var closedTicketsCount = tickets.Count(t => t.StatusId == 3);
             var rejectedTicketsCount = tickets.Count(t => t.StatusId == 2);
             var reRaisedTicketsCount = tickets.Count(t => t.ReRaiseStatus == true);
+            var totalTicketsCount = activeTicketsCount + reRaisedTicketsCount + rejectedTicketsCount + closedTicketsCount + overDueTicketsCount;
 
             var data = new
             {
