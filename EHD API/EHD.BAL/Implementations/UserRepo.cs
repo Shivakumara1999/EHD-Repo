@@ -44,6 +44,16 @@ namespace EHD.BAL.Implementations
                 throw new EmployeeEmailAlternateException();
             }
 
+            
+            var existEmployee = await _dbContext.employees.FirstOrDefaultAsync(e => e.OfficialMailId == employee.OfficialMailId && e.EmployeeId != employee.EmployeeId);
+
+            if (existEmployee != null)
+
+            {
+
+                throw new EmployeeEmailExistException();
+
+            }
             var existingContactNumber = await _dbContext.employees.FirstOrDefaultAsync(e => e.ContactNumber == employee.ContactNumber && e.EmployeeId != employee.EmployeeId);
 
             if (existingContactNumber != null)

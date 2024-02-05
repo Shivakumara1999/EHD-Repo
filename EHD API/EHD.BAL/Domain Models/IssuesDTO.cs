@@ -13,7 +13,8 @@ namespace EHD.BAL.Domain_Models
 
         public int IssueId { get; set; }
         public string IssueName { get; set; }
-        public string EmployeeId { get; set; }
+        public string? CreatedBy { get; set; }
+        public string? ModifiedBy { get; set; }
     }
     public class GetAllIssueTypesDTO
     {

@@ -171,13 +171,7 @@ namespace EHD.API.Controllers
             return issues.ToList();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddOrUpdateRole(Role role)
-        {
-            await Task.Run(() => _master.AddOrUpdateRole(role));
-
-            return Ok("Role added or updated successfully.");
-        }
+       
 
         [HttpGet]
         public IEnumerable<Department> GetActiveDepartments()
@@ -193,7 +187,7 @@ namespace EHD.API.Controllers
             return Ok("Issue types added successfully.");
         }
 
-        [HttpPut("UpdateIssueType")]
+        [HttpPut]
         public async Task<IActionResult> UpdateIssueTypes(IssuesDTO issue)
         {
             await _master.UpdateIssueTypes(issue);

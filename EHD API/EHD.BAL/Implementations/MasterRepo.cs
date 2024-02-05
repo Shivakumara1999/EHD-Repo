@@ -366,53 +366,7 @@ namespace EHD.BAL.Implementations
         }
 
 
-        public async Task AddOrUpdateRole(Role role)
-        {
-            var RolesById = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleId == role.RoleId);
-            var RolesByName = await _dbContext.roles.FirstOrDefaultAsync(e => e.RoleName == role.RoleName);
-
-            if (RolesById == null)
-            {
-                {
-                    if (RolesByName == null)
-                    {
-                        var newRole = new Role
-                        {
-                            RoleId = role.RoleId,
-                            RoleName = role.RoleName,
-                            CreatedBy = role.CreatedBy,
-                            CreatedDate = DateTime.Now,
-                            DepartmentId = role.DepartmentId
-                        };
-                        _dbContext.roles.Add(newRole);
-                        await _dbContext.SaveChangesAsync();
-
-                    }
-                    else
-                    {
-                        throw new RoleIdNotExistException();
-                    }
-                }
-            }
-            else
-            {
-                RolesById.RoleId = role.RoleId;
-
-                if (RolesByName != null)
-                {
-                    RolesById.RoleName = role.RoleName;
-                    RolesById.ModifiedBy = role.ModifiedBy;
-                    RolesById.ModifiedDate = DateTime.Now;
-
-                }
-                else
-                {
-                    throw new RoleNameNotExistException();
-                }
-                await _dbContext.SaveChangesAsync();
-            }
-        }
-
+       
 
         public IEnumerable<Department> GetActiveDepartments()
         {
@@ -432,7 +386,8 @@ namespace EHD.BAL.Implementations
                     DepartmentId = issues[0].DepartmentId,
                     CreatedDate = DateTime.Now,
                     IsActive = true,
-                    CreatedBy = issueDto.EmployeeId
+                    CreatedBy = issueDto.CreatedBy,
+                    ModifiedBy = issueDto.ModifiedBy,
                 };
 
                 _dbContext.issues.Add(issue);
@@ -450,7 +405,8 @@ namespace EHD.BAL.Implementations
                 existingIssue.DepartmentId = issueDto.DepartmentId;
                 existingIssue.ModifiedDate = DateTime.Now;
                 existingIssue.IsActive = true;
-                existingIssue.ModifiedBy = issueDto.EmployeeId;
+                existingIssue.ModifiedBy = issueDto.ModifiedBy;
+                existingIssue.CreatedBy = issueDto.CreatedBy;
 
                 await _dbContext.SaveChangesAsync();
             }

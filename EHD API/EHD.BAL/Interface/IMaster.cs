@@ -60,8 +60,7 @@ namespace EHD.BAL.Interface
 
         Task<IEnumerable<Issue>> GetActiveIssueType();
 
-        Task AddOrUpdateRole(Role role);
-
+        
         public IEnumerable<Department> GetActiveDepartments();
 
         Task AddIssueTypes(List<IssuesDTO> issues);
