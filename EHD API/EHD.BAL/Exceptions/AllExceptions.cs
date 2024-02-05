@@ -61,6 +61,12 @@ namespace EHD.BAL.Exceptions
             public DepartmentNameExistException() { }
             public DepartmentNameExistException(string message) : base(message) { }
         }
+        public class DepartmentException : Exception
+        {
+            public DepartmentException() { }
+            public DepartmentException(string message) : base(message) { }
+        }
+
 
 
         //Role
@@ -91,6 +97,13 @@ namespace EHD.BAL.Exceptions
             public IssueNameExistException(string message) : base(message) { }
 
         }
+
+        public class IssueException : Exception
+        {
+            public IssueException() { }
+            public IssueException(string message) : base(message) { }
+        }
+
         //Login
         public class UserNotFound : Exception
         {
@@ -150,6 +163,9 @@ namespace EHD.BAL.Exceptions
                     case DepartmentNameExistException:
                         context.Result = new BadRequestObjectResult("Department Name already exists");
                         break;
+                    case DepartmentException:
+                        context.Result = new BadRequestObjectResult("Select the Department");
+                        break;
 
                     //Roles
                     case RoleIdNotExistException:
@@ -165,6 +181,10 @@ namespace EHD.BAL.Exceptions
                         break;
                     case IssueNameExistException:
                         context.Result = new BadRequestObjectResult("Issue Name already exists");
+                        break;
+
+                    case IssueException:
+                        context.Result = new BadRequestObjectResult("Select the IssueType");
                         break;
                     //LOGIN
                     case UserNotFound:

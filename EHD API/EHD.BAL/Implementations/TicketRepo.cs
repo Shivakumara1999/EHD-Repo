@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using static EHD.BAL.Exceptions.AllExceptions;
 
 namespace EHD.BAL.Implementations
 {
@@ -451,11 +452,23 @@ namespace EHD.BAL.Implementations
 
         private Ticket GenerateTicket(CreateTicketDTO ticketModel)
         {
+           
+            if (ticketModel.DepartmentId == null)
+            {
+                throw new DepartmentException();
+            }
+
+            if (ticketModel.IssueId == null)
+            {
+                throw new IssueException();
+            }
+
             var ticketsList = _dbContext.tickets.ToList();
             var recentTicketId = ticketsList.OrderByDescending(t => t.TicketId.Length >= 4 ? int.Parse(t.TicketId.Substring(t.TicketId.Length - 4)) : 0).FirstOrDefault();
             int Digits = recentTicketId != null ? int.Parse(recentTicketId.TicketId.Substring(recentTicketId.TicketId.Length - 4)) : 0;
             var departmentList = _dbContext.departments.FirstOrDefault(d => d.DepartmentId == ticketModel.DepartmentId);
-            string department = departmentList != null ? departmentList.DepartmentName.Substring(0, Math.Min(3, departmentList.DepartmentName.Length)) : "TK";
+
+            string department = departmentList.DepartmentName.Substring(0, Math.Min(3, departmentList.DepartmentName.Length));
 
             Ticket newTicket = new Ticket
             {
@@ -489,6 +502,7 @@ namespace EHD.BAL.Implementations
 
             return newTicket;
         }
+
 
         public async Task UpdateAdminReRaiseStatus(AdminReRaiseTicketDTO data)
         {
