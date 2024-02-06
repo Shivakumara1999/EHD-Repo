@@ -31,7 +31,7 @@ namespace EHD.BAL.Implementations
         }
         public string Login(LoginDTO model)
         {
-            var user = _dbContext.employees.FirstOrDefault(i => i.OfficialMailId == model.OfficialMailId);
+            var user = _dbContext.employees.FirstOrDefault(i => i.OfficialMailId == model.OfficialMailId && i.IsActive==true);
 
             if (user == null)
             {
