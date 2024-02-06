@@ -262,22 +262,18 @@ namespace EHD.BAL.Implementations
 
         public async Task<IEnumerable<GetRoleDTO>> GetAllRoles(bool isActive)
         {
-            var rolesWithDepartments = await _dbContext.roles
-                .Where(r => r.IsActive == isActive)
-                .Join(_dbContext.departments,
-                    role => role.DepartmentId,
-                    department => department.DepartmentId,
-                    (role, department) => new GetRoleDTO
-                    {
-                        RoleId = role.RoleId,
-                        RoleName = role.RoleName,
-                        DepartmentName = department.DepartmentName,
-                        CreatedBy = role.CreatedBy,
-                        CreatedDate = role.CreatedDate
-                    })
+            var rolesByIsActive = await _dbContext.roles
+                .Where(role => role.IsActive == isActive)
+                .Select(role => new GetRoleDTO
+                {
+                    RoleId = role.RoleId,
+                    RoleName = role.RoleName,
+                    CreatedBy = role.CreatedBy,
+                    CreatedDate = role.CreatedDate
+                })
                 .ToListAsync();
 
-            return rolesWithDepartments;
+            return rolesByIsActive;
         }
 
 

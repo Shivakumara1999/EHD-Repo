@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EHD.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8df539d460efb31b4d07efcf0f99cd68e8a592f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("EHD.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EHD.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
