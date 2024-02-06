@@ -37,7 +37,7 @@ namespace EHD.BAL.Implementations
                 ToAddress = employee.OfficialMailId,
                 Subject = "Ticket has been raised",
                 MailHeader = $"Ticket has been raised to respective department",
-                MailBody = $"Dear, {employee.FirstName + " " + employee.LastName},<br></br> We would like to inform you that your ticket has been raised successfully to the respective department with ticketid #{newTicket.TicketId}.",
+                MailBody = $"Dear, {employee.FirstName + " " + employee.LastName},<br></br> We would like to inform you that your ticket has been raised successfully with ticketid #{newTicket.TicketId}.",
                 MailFooter = "From Joy Help Desk team! "
             };
 
@@ -184,14 +184,15 @@ namespace EHD.BAL.Implementations
             if (ticket != null)
             {
                 var employee = await _dbContext.employees.FirstOrDefaultAsync(e => e.EmployeeId == ticket.EmployeeId);
-                if (employee != null) {
+                var department = await _dbContext.departments.FirstOrDefaultAsync(d => d.DepartmentId == data.DepartmentId);
+                if (employee != null && department != null) {
 
                     var mailData = new MailTemplateDTO
                     {
                         ToAddress = employee.OfficialMailId,
                         Subject = "Regarding ticket raising to respective department",
                         MailHeader = "Ticket has been raised to respective department",
-                        MailBody = $"Dear, {employee.FirstName + " " + employee.LastName},<br></br> We would like to inform you that we have moved your ticket with ticket id #{ticket.TicketId} to the relevent department, since you had raised to irrelevent department.",
+                        MailBody = $"Dear, {employee.FirstName + " " + employee.LastName},<br></br> We would like to inform you that we have moved your ticket with ticket id #{ticket.TicketId} to the {department.DepartmentName}, since you had raised to irrelevent department.",
                         MailFooter = "From Joy Help Desk team! "
                     };
 
