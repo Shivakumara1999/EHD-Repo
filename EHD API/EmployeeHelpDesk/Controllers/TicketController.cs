@@ -132,5 +132,18 @@ namespace EHD.API.Controllers
         {
             await _ticket.UpdateAdminReRaiseStatus(data);
         }
+
+
+        [HttpPut]
+        public async Task<bool> UpdateTicketFeedback(UpdateTicketFeedbackDTO data)
+        {
+            return await _ticket.UpdateTicketFeedback(data);
+        }
+
+        [HttpGet]
+        public async Task<IQueryable> GetAllFeedbacks()
+        {
+            return await _ticket.GetAllFeedbacks();
+        }
     }
 }

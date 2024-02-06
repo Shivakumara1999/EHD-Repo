@@ -88,4 +88,12 @@ namespace EHD.BAL.Domain_Models
         public string? ReRaiseReason { get; set; }
     }
 
+    public class UpdateTicketFeedbackDTO
+    {
+        public string TicketId { get; set; }
+
+        public int FeedbackId { get; set; }
+
+        public string? feedbackDescription { get; set; }
+    }
 }

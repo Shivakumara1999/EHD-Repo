@@ -27,5 +27,7 @@ namespace EHD.BAL.Interface
         Task<List<getTicketsByEmpIdDTO>> GetTicketDetails(string? Empid);
 
         Task UpdateAdminReRaiseStatus(AdminReRaiseTicketDTO data);
+        Task<IQueryable> GetAllFeedbacks();
+        Task<bool> UpdateTicketFeedback(UpdateTicketFeedbackDTO data);
     }
 }

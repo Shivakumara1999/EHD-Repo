@@ -539,5 +539,36 @@ namespace EHD.BAL.Implementations
             }
 
         }
+        
+
+        public async Task<bool> UpdateTicketFeedback(UpdateTicketFeedbackDTO data)
+        {
+            var ticket = await _dbContext.tickets
+                .FirstOrDefaultAsync(t => t.TicketId == data.TicketId);
+
+            if (ticket != null)
+            {
+
+                ticket.FeedbackId = data.FeedbackId;
+                ticket.FeedbackDescription = data.feedbackDescription;
+
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+      
+
+        public async Task<IQueryable> GetAllFeedbacks()
+        {
+            var query = from feedback in _dbContext.feedbacks
+                        select new
+                        {
+                            FeedbackId = feedback.FeedbackId,
+                            FeedbackType = feedback.FeedbackType
+                        };
+            return query;
+        }
     }
 }
