@@ -54,6 +54,7 @@ namespace EHD.BAL.Domain_Models
         public string Issue { get; set; }
         public int? PriorityId { get; set; }
         public string Priority { get; set; }
+        public int? StatusId { get; set; }
         public string Status { get; set; }
         public bool ReRaiseStatus { get; set; }
         public int? ReRaiseCount { get; set; }
