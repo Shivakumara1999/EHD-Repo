@@ -66,7 +66,7 @@ namespace EHD.BAL.Implementations
                 .Include(i => i.Issue)
                 .Include(p => p.Priority)
                 .Include(s => s.Status)
-                .Where(t => t.DepartmentId == departmentId && (t.StatusId == null || t.StatusId == 1))
+                .Where(t => t.DepartmentId == departmentId && (t.StatusId == null || t.StatusId == 1) && t.IsActive == true)
                 .OrderByDescending(t => t.CreatedDate)
                 .Select(t => new GetTicketByDepartmentDTO
                 {
@@ -96,7 +96,8 @@ namespace EHD.BAL.Implementations
                 .Include(s => s.Status)
                 .Where(t => t.DepartmentId == departmentId && (t.StatusId == null || t.StatusId == 1)
                 && DateTime.Now > t.DueDate
-                && DateTime.Now < t.DueDate.AddDays(1))
+                && DateTime.Now < t.DueDate.AddDays(1)
+                && t.IsActive == true )
                 .OrderByDescending(t => t.CreatedDate)
                 .Select(t => new GetTicketByDepartmentDTO
                 {
@@ -124,7 +125,7 @@ namespace EHD.BAL.Implementations
                 .Include(i => i.Issue)
                 .Include(p => p.Priority)
                 .Include(s => s.Status)
-                .Where(t => t.DepartmentId == departmentId && t.StatusId == 3)
+                .Where(t => t.DepartmentId == departmentId && t.StatusId == 3 && t.IsActive == true)
                 .OrderByDescending(t => t.CreatedDate)
                 .Select(t => new GetTicketByDepartmentDTO
                 {
@@ -213,7 +214,7 @@ namespace EHD.BAL.Implementations
                 .Include(i => i.Issue)
                 .Include(p => p.Priority)
                 .Include(s => s.Status)
-                .Where(t => t.DepartmentId == departmentId && t.StatusId == 2)
+                .Where(t => t.DepartmentId == departmentId && t.StatusId == 2 && t.IsActive == true)
                 .OrderByDescending(t => t.CreatedDate)
                 .Select(t => new GetTicketByDepartmentDTO
                 {
@@ -242,7 +243,7 @@ namespace EHD.BAL.Implementations
                 .Include(i => i.Issue)
                 .Include(p => p.Priority)
                 .Include(s => s.Status)
-                .Where(t => t.DepartmentId == departmentId && t.ReRaiseStatus == true)
+                .Where(t => t.DepartmentId == departmentId && t.ReRaiseStatus == true && t.IsActive == true)
                 .OrderByDescending(t => t.CreatedDate)
                 .Select(t => new GetTicketByDepartmentDTO
                 {
@@ -274,7 +275,7 @@ namespace EHD.BAL.Implementations
                 .Include(i => i.Issue)
                 .Include(p => p.Priority)
                 .Include(s => s.Status)
-                .Where(t => t.DepartmentId == departmentId && (t.StatusId == 1 || t.StatusId == null) && t.DueDate.AddDays(1) < DateTime.Now)
+                .Where(t => t.DepartmentId == departmentId && (t.StatusId == 1 || t.StatusId == null) && t.DueDate.AddDays(1) < DateTime.Now && t.IsActive == true)
                 .OrderByDescending(t => t.CreatedDate)
                 .Select(t => new GetTicketByDepartmentDTO
                 {
@@ -306,7 +307,7 @@ namespace EHD.BAL.Implementations
                 .Include(i => i.Issue)
                 .Include(p => p.Priority)
                 .Include(s => s.Status)
-                .Where(t => t.DepartmentId == departmentId && t.ReRaiseCount > 1 && t.ReRaiseStatus == true)
+                .Where(t => t.DepartmentId == departmentId && t.ReRaiseCount > 1 && t.ReRaiseStatus == true && t.IsActive == true)
                 .OrderByDescending(t => t.CreatedDate)
                 .Select(t => new GetTicketByDepartmentDTO
                 {
