@@ -340,12 +340,15 @@ namespace EHD.BAL.Implementations
 
         public string GetCount(string departmentId)
         {
+            if (departmentId == null)
+            {
+                throw new ArgumentNullException(nameof(departmentId), "Department ID cannot be null.");
+            }
+
             var tickets = _dbContext.tickets
                 .Where(t => t.IsActive == true && t.DepartmentId == departmentId)
                 .ToList();
 
-           // var totalTicketsCount = tickets.Count();
-          
             var activeTicketsCount = tickets.Count(t => t.StatusId == null || t.StatusId == 1);
             var overDueTicketsCount = tickets.Count(t => (t.StatusId == null || t.StatusId == 1)
                 && DateTime.Now > t.DueDate
@@ -369,8 +372,14 @@ namespace EHD.BAL.Implementations
         }
 
 
+
         public async Task<IQueryable> GetIssueTypeByDepartmentId(string departmentId)
         {
+            if (departmentId == null)
+            {
+                throw new ArgumentNullException(nameof(departmentId), "Department ID cannot be null.");
+            }
+
             var query = from issue in _dbContext.issues
                         where issue.DepartmentId == departmentId
                         group issue by new { issue.DepartmentId, issue.IssueName, issue.IssueId } into grouped
@@ -385,6 +394,7 @@ namespace EHD.BAL.Implementations
             var result = await query.ToListAsync();
             return result.AsQueryable();
         }
+
         public async Task<bool> UpdateTicketAsync(string ticketId, Re_raisedDTO reRaisedDto)
         {
             var ticket = await _dbContext.tickets.FindAsync(ticketId);
@@ -487,7 +497,7 @@ namespace EHD.BAL.Implementations
                 PriorityId = ticketModel.PriorityId,
                 CreatedDate = DateTime.Now,
                 CreatedBy = ticketModel.CreatedBy,
-                IsActive = ticketModel.IsActive,
+                IsActive=true,
                 ReRaiseStatus = false,
             };
 

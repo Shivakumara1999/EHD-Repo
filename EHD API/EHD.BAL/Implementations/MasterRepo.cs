@@ -4,6 +4,7 @@ using EHD.DAL.DataContext;
 using EHD.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -394,19 +395,40 @@ namespace EHD.BAL.Implementations
 
         public async Task UpdateIssueTypes(IssuesDTO issueDto)
         {
-            var existingIssue = await _dbContext.issues.FirstOrDefaultAsync(i => i.IssueId == issueDto.IssueId);
-            if (existingIssue != null)
+            try
             {
-                existingIssue.IssueName = issueDto.IssueName;
-                existingIssue.DepartmentId = issueDto.DepartmentId;
-                existingIssue.ModifiedDate = DateTime.Now;
-                existingIssue.IsActive = true;
-                existingIssue.ModifiedBy = issueDto.ModifiedBy;
-                existingIssue.CreatedBy = issueDto.CreatedBy;
+                if (issueDto == null)
+                {
+                    throw new ArgumentNullException(nameof(issueDto), "Issue DTO cannot be null.");
+                }
 
-                await _dbContext.SaveChangesAsync();
+                var existingIssue = await _dbContext.issues.FirstOrDefaultAsync(i => i.IssueId == issueDto.IssueId);
+                if (existingIssue != null)
+                {
+                    existingIssue.IssueName = issueDto.IssueName;
+                    existingIssue.DepartmentId = issueDto.DepartmentId;
+                    existingIssue.ModifiedDate = DateTime.Now;
+                    existingIssue.IsActive = true;
+                    existingIssue.ModifiedBy = issueDto.ModifiedBy;
+                    existingIssue.CreatedBy = issueDto.CreatedBy;
+
+                    await _dbContext.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new InvalidOperationException($"Issue with ID {issueDto.IssueId} not found.");
+                }
             }
+            catch (Exception ex)
+            { // Log the exception to the console
+                Console.WriteLine($"An error occurred while updating issue types: {ex}");
+
+                throw new dataisnotfound();
+            }
+
+
         }
+
 
         public async Task<IQueryable> GetAllDepartmentName()
         {

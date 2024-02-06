@@ -16,7 +16,7 @@ namespace EHD.BAL.Domain_Models
         public DateTime DueDate { get; set; }
         public DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }=true;
         public bool ReRaiseStatus { get; set; }
 
     }

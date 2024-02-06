@@ -76,7 +76,11 @@ namespace EHD.BAL.Exceptions
             public RoleIdNotExistException() { }
             public RoleIdNotExistException(string message) : base(message) { }
         }
-
+        public class dataisnotfound : Exception
+        {
+            public dataisnotfound() { }
+            public dataisnotfound(string message) : base(message) { }
+        }
         public class RoleNameNotExistException : Exception
         {
             public RoleNameNotExistException() { }
@@ -195,6 +199,9 @@ namespace EHD.BAL.Exceptions
                         break;
                     case Invalidotp:
                         context.Result = new BadRequestObjectResult("Please check for Correct OTP");
+                        break;
+                    case dataisnotfound:
+                        context.Result = new BadRequestObjectResult("provide proper data");
                         break;
                 }
                 context.ExceptionHandled = true;
