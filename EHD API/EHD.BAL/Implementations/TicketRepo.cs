@@ -159,6 +159,7 @@ namespace EHD.BAL.Implementations
                 ticket.StatusId = ticketStatus.StatusId;
                 ticket.ModifiedBy = ticketStatus.AssigneeId;
                 ticket.ModifiedDate = DateTime.Now;
+                ticket.ResolvedDate = DateTime.Now;
                 ticket.AssigneeId = assignee.EmployeeId;
                 ticket.Assignee = assignee.FirstName + " " + assignee.LastName;
 
