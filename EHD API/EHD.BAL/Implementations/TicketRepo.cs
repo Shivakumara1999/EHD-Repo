@@ -407,6 +407,7 @@ namespace EHD.BAL.Implementations
             {
                 ticket.ReRaiseReason = reRaisedDto.ReRaiseReason;
                 ticket.ModifiedBy = ticket.EmployeeId;
+                ticket.StatusId = null;
                 if (ticket.ReRaiseCount == null)
                 {
                     ticket.ReRaiseCount = 1;
@@ -416,6 +417,7 @@ namespace EHD.BAL.Implementations
                     ticket.ReRaiseCount = ticket.ReRaiseCount + 1;
                 }
                 ticket.ReRaiseDate = DateTime.Now;
+                ticket.ModifiedDate = DateTime.Now;
 
                 await _dbContext.SaveChangesAsync();
 
