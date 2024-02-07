@@ -3,9 +3,11 @@
     "",
     "\\EHD API",
     "\\EHD API\\EHD.BAL",
+    "\\EHD API\\EHD.BAL\\Interface",
     "\\EHD API\\EHD.DAL",
     "\\EHD API\\EmployeeHelpDesk",
     "\\EHD API\\EmployeeHelpDesk\\Controllers"
   ],
+  "SelectedNode": "\\EHD API\\EHD.BAL\\Interface\\IMaster.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -159,12 +159,11 @@ namespace EHD.BAL.Implementations
                 ticket.StatusId = ticketStatus.StatusId;
                 ticket.ModifiedBy = ticketStatus.AssigneeId;
                 ticket.ModifiedDate = DateTime.Now;
+                ticket.AssigneeId = assignee.EmployeeId;
+                ticket.Assignee = assignee.FirstName + " " + assignee.LastName;
+
                 switch (ticketStatus.StatusId)
                 {
-                    case 1:
-                        ticket.AssigneeId = assignee.EmployeeId;
-                        ticket.Assignee = assignee.FirstName + " " + assignee.LastName;
-                        break;
                     case 2:
                         ticket.RejectedReason = ticketStatus.Reason;
                         break;
