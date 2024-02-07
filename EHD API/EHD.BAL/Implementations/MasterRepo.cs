@@ -163,9 +163,9 @@ namespace EHD.BAL.Implementations
             
         }
 
-       public async Task EditDesignationsIsActive(IsActiveModel designationEditByActive, bool Is_Active)
+        public async Task EditDesignationsIsActive(IssueIsActiveModel designationEditByActive)
         {
-            var DesignationIds = designationEditByActive.Id.Select(int.Parse).ToList();
+            var DesignationIds = designationEditByActive.Id.ToList();
 
             var DesignationToUpdate = _dbContext.designations
                 .Where(d => DesignationIds.Contains(d.DesignationId))
@@ -173,11 +173,12 @@ namespace EHD.BAL.Implementations
 
             foreach (var designation in DesignationToUpdate)
             {
-                designation.IsActive = Is_Active;
+                designation.IsActive = designationEditByActive.Is_Active;
             }
 
             _dbContext.SaveChanges();
         }
+
 
         public async Task<IEnumerable<Designations>> GetDesignationsByActive(bool isActive)
         {
@@ -263,18 +264,22 @@ namespace EHD.BAL.Implementations
 
         public async Task<IEnumerable<GetRoleDTO>> GetAllRoles(bool isActive)
         {
-            var rolesByIsActive = await _dbContext.roles
-                .Where(role => role.IsActive == isActive)
-                .Select(role => new GetRoleDTO
-                {
-                    RoleId = role.RoleId,
-                    RoleName = role.RoleName,
-                    CreatedBy = role.CreatedBy,
-                    CreatedDate = role.CreatedDate
-                })
+            var rolesWithDepartments = await _dbContext.roles
+                .Where(r => r.IsActive == isActive)
+                .Join(_dbContext.departments,
+                    role => role.DepartmentId,
+                    department => department.DepartmentId,
+                    (role, department) => new GetRoleDTO
+                    {
+                        RoleId = role.RoleId,
+                        RoleName = role.RoleName,
+                        DepartmentName = department.DepartmentName,
+                        CreatedBy = role.CreatedBy,
+                        CreatedDate = role.CreatedDate
+                    })
                 .ToListAsync();
 
-            return rolesByIsActive;
+            return rolesWithDepartments;
         }
 
 
@@ -441,9 +446,9 @@ namespace EHD.BAL.Implementations
                         return query;
         }
 
-        public void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active)
+        public void EditIssueIsActive(IssueIsActiveModel IssueEditByActive)
         {
-            var IssueIds = IssueEditByActive.Id.Select(int.Parse).ToList();
+            var IssueIds = IssueEditByActive.Id.ToList();
 
             var IssueToUpdate = _dbContext.issues
                 .Where(d => IssueIds.Contains(d.IssueId))
@@ -451,15 +456,15 @@ namespace EHD.BAL.Implementations
 
             foreach (var issues in IssueToUpdate)
             {
-                issues.IsActive = Is_Active;
+                issues.IsActive = IssueEditByActive.Is_Active;
             }
 
             _dbContext.SaveChanges();
         }
 
-        public void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
+        public void EditRolesIsActive(IsActiveModel RolesEditByActive)
         {
-            var RolesIds = RolesEditByActive.Id;
+            var RolesIds = RolesEditByActive.Id.ToList();
 
             var RolesToUpdate = _dbContext.roles
                 .Where(d => RolesIds.Contains(d.RoleId))
@@ -467,13 +472,13 @@ namespace EHD.BAL.Implementations
 
             foreach (var roles in RolesToUpdate)
             {
-                roles.IsActive = Is_Active;
+                roles.IsActive = RolesEditByActive.Is_Active;
             }
 
             _dbContext.SaveChanges();
         }
 
-    
 
-}
+
+    }
 }

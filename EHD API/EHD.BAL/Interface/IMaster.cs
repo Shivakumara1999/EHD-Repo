@@ -29,7 +29,7 @@ namespace EHD.BAL.Interface
 
         Task<IQueryable> GetAllDesignations();
 
-        Task EditDesignationsIsActive(IsActiveModel designationEditByActive, bool is_Active);
+        Task EditDesignationsIsActive(IssueIsActiveModel designationEditByActive);
 
         Task<IEnumerable<Designations>> GetDesignationsByActive(bool isActive);
 
@@ -39,6 +39,7 @@ namespace EHD.BAL.Interface
 
 
         Task<IEnumerable<GetRoleDTO>> GetAllRoles(bool isActive);
+        
         Task<IQueryable> GetAllRoleNames();
 
 
@@ -68,10 +69,9 @@ namespace EHD.BAL.Interface
         Task UpdateIssueTypes(IssuesDTO issue);
         Task<IQueryable> GetAllDepartmentName();
 
+        void EditRolesIsActive(IsActiveModel RolesEditByActive);
 
-        void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active);
-
-        void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active);
+        void EditIssueIsActive(IssueIsActiveModel IssueEditByActive);
 
         Task<IEnumerable<DepartmentIdNameDto>> GetDepartmentByRoleId(string roleId);
 

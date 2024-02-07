@@ -477,10 +477,10 @@ namespace EHD.BAL.Implementations
                 throw new DepartmentException();
             }
 
-            if (ticketModel.IssueId == null)
-            {
-                throw new IssueException();
-            }
+            //if (ticketModel.IssueId == null)
+            //{
+            //    throw new IssueException();
+            //}
 
             var ticketsList = _dbContext.tickets.ToList();
             var recentTicketId = ticketsList.OrderByDescending(t => t.TicketId.Length >= 4 ? int.Parse(t.TicketId.Substring(t.TicketId.Length - 4)) : 0).FirstOrDefault();

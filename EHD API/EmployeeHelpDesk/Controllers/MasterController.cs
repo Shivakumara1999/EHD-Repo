@@ -66,9 +66,9 @@ namespace EHD.API.Controllers
         }
 
         [HttpPut]
-        public async Task EditDesignationsIsActive(IsActiveModel designationEditByActive, bool Is_Active)
+        public async Task EditDesignationsIsActive(IssueIsActiveModel designationEditByActive)
         {
-            await _master.EditDesignationsIsActive(designationEditByActive, Is_Active);
+            await _master.EditDesignationsIsActive(designationEditByActive);
         }
         [HttpGet]
         public async Task<IEnumerable<Designations>> GetDesignationsByActive(bool isActive)
@@ -201,18 +201,19 @@ namespace EHD.API.Controllers
         }
 
         [HttpPut]
-        public void EditIssueIsActive(IsActiveModel IssueEditByActive, bool Is_Active)
+        public void EditIssueIsActive(IssueIsActiveModel IssueEditByActive)
         {
-            _master.EditIssueIsActive(IssueEditByActive, Is_Active);
+            _master.EditIssueIsActive(IssueEditByActive);
         }
 
 
 
         [HttpPut]
-        public void EditRolesIsActive(IsActiveModel RolesEditByActive, bool Is_Active)
+        public void EditRolesIsActive(IsActiveModel RolesEditByActive)
         {
-            _master.EditRolesIsActive(RolesEditByActive, Is_Active);
+            _master.EditRolesIsActive(RolesEditByActive);
         }
+
 
         [HttpGet]
         public async Task<IEnumerable<DepartmentIdNameDto>> GetAllDepartmentsByRoles(string roleId)

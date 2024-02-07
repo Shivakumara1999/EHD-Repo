@@ -30,6 +30,14 @@ namespace EHD.BAL.Domain_Models
        public class IsActiveModel
        {
         public List<string> Id { get; set; }
+            public bool Is_Active { get; set;}
        }
+
+
+        public class IssueIsActiveModel
+        {
+            public List<int> Id { get; set; }
+            public bool Is_Active { get; set; }
+        }
     }
 }
